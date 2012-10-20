@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block meta_title %}Новости{% endblock %}
+
+{% block all_content %}
+	<table id="news-list">
+		{% for item in object_list %}
+			<tr>
+				<td class="date">{{ item.publish_date|date:"j E, Y" }}</td>
+				<td>
+					<a href="{{ item.get_absolute_url }}" title="{{ item.title }}">{{ item.title }}</a>
+				</td>
+			</tr>
+		{% endfor %}
+	</table>
+{% endblock %}

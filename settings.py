@@ -1,3 +1,16 @@
+from os.path import join, abspath, dirname
+import sys
+
+
+# This directory.
+PROJECT_DIR = dirname(__file__)
+
+# Paths to add on os.path
+PATHS = (
+    abspath(join(PROJECT_DIR, 'apps')),
+)
+[sys.path.insert(0, i) if i not in sys.path else None for i in PATHS]
+
 
 ######################
 # MEZZANINE SETTINGS #
@@ -256,12 +269,15 @@ INSTALLED_APPS = (
     "mezzanine.core",
     "mezzanine.generic",
     #"mezzanine.blog",
-    #"mezzanine.forms",
+    "mezzanine.forms",
     "mezzanine.pages",
     #"mezzanine.galleries",
     #"mezzanine.twitter",
     #"mezzanine.accounts",
     #"mezzanine.mobile",
+
+    "typogrify",
+    "news",
 )
 
 # List of processors used by RequestContext to populate the context.
@@ -315,7 +331,6 @@ OPTIONAL_APPS = (
     "debug_toolbar",
     "django_extensions",
     "compressor",
-    "typogrify",
     PACKAGE_NAME_FILEBROWSER,
     PACKAGE_NAME_GRAPPELLI,
 )

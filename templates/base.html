@@ -35,18 +35,24 @@
 			<div id="big-title">
 				{% for page in page_branch %}
 					{% if page.is_primary and page.is_current_or_ascendant %}
-						<h1>{{ page.title }}</h1>
+						{% if request.path == page.get_absolute_url %}
+							<h1>{{ page.title }}</h1>
+						{% else %}
+							<h1><a href="{{ page.get_absolute_url }}">{{ page.title }}</a></h1>
+						{% endif %}
 					{% endif %}
 				{% endfor %}
 			</div>
 			<div id="content" class="clearfix">
-				<div id="content-tree">
-					{% page_menu "pages/menus/left-tree.html" %}
-					<br />
-				</div>
-				<div id="content-main">
-					{% block main %}{% endblock %}
-				</div>
+				{% block all_content %}
+					<div id="content-tree">
+						{% page_menu "pages/menus/left-tree.html" %}
+						<br />
+					</div>
+					<div id="content-main">
+						{% block main %}{% endblock %}
+					</div>
+				{% endblock %}
 			</div>
 			<div id="footer" class="clearfix">
 				<div id="footer-logo"></div>

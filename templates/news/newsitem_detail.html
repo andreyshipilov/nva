@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load typogrify_tags %}
+
+{% block meta_title %}{{ object.title }}{% endblock %}
+
+{% block all_content %}
+	<table id="news-list">
+		<tr>
+			<td></td>
+			<td>
+				<h1>{{ object.title|typogrify }}</h1>
+			</td>
+		</tr>
+		<tr>
+			<td class="date">{{ object.publish_date|date:"j E, Y" }}</td>
+			<td>
+				{{ object.full_text|safe|typogrify }}
+			</td>
+		</tr>
+	</table>
+{% endblock %}

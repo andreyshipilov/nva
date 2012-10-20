@@ -12,6 +12,7 @@ html {
 body {
 	font: normal 1em/1.3em Arial, sans-serif;
 	background: url('/static/page-top-bg.jpg') no-repeat 100% 0 transparent;
+	padding-top: 25px;
 }
 a {
 	color: #555;
@@ -24,7 +25,7 @@ a {
 	padding: 0 25px;
 }
 #top {
-	margin: 25px 0 50px;
+	margin: 0 0 50px;
 }
 	#top h1 {
 		float: left;
@@ -138,6 +139,9 @@ a {
 	#big-title h1 {
 		font: normal 4em/175px Cambria, sans-serif;
 	}
+	#big-title h1 a {
+		color: #fff;
+	}
 #content {}
 	#content-tree {
 		float: left;
@@ -162,8 +166,14 @@ a {
 		width: 675px;
 		margin: 0 25px 0 0;
 	}
+	#content p {
+		margin: 0 0 1em 0;
+	}
+	#content h1 {
+		font: normal 2em Cambria, serif;
+	}
 #footer {
-	margin: 90px 0 30px;
+	margin: 75px 0 25px;
 }
 	#footer-logo {
 		float: left;
@@ -172,11 +182,11 @@ a {
 		margin-right: 15px;
 		background-color: #ddd;
 	}
-	#footer-menu ul.root,
-	#footer-menu li.root {
+	#footer-menu ul {
 		float: left;
 	}
-	#footer-menu li.root {
+	#footer-menu li {
+		float: left;
 		margin-right: 25px;
 	}
 		#footer-menu p {
@@ -184,3 +194,17 @@ a {
 			float: left;
 			white-space: nowrap;
 		}
+		
+/* News */
+#news-list {
+	width: 100%;
+}
+	#news-list td {
+		padding: 0 0 25px;
+	}
+	#news-list td.date {
+		width: 220px;
+		text-align: right;
+		padding-right: 25px;
+		color: #999;
+	}
