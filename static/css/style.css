@@ -7,10 +7,11 @@
 /* Common CSS */
 html {
 	font-size: 80%;
+	background: url('/static/page-bottom-bg.jpg') no-repeat 0 100% #fff;
 }
 body {
 	font: normal 1em/1.3em Arial, sans-serif;
-	background: url('/static/page-bg.jpg') no-repeat 0 100% #fff;
+	background: url('/static/page-top-bg.jpg') no-repeat 100% 0 transparent;
 }
 a {
 	color: #555;
@@ -63,6 +64,47 @@ a {
 	#menu-main {
 		float: left;
 	}
+		#menu-main ul li {
+			float: left;
+			color: #fff;
+			font-size: 1.2em;
+		}
+			#menu-main ul li a,
+			#menu-main ul li span {
+				padding: 0 12.5px;
+				line-height: 25px;
+				display: block;
+				border-radius: 5px;
+				-moz-border-radius: 5px;
+				-webkit-border-radius: 5px;
+				-o-border-radius: 5px;
+			}
+			#menu-main ul li a {
+				color: #000;
+			}
+			#menu-main ul li .active {
+				background-color: #1a96d6;
+			}
+			#menu-main ul li a.active {
+				color: #fff;
+			}
+			#menu-main-home {
+				margin-right: 12.5px;
+			}
+				#menu-main-home a {
+					border: 1px solid #bbb;x
+					text-decoration: none;
+				}
+				#menu-main-home a:hover {
+					background-color: #eee;
+				}
+					#menu-main-home a i {
+						display: block;
+						background: url('/static/sprite.png') no-repeat 0 0 transparent;
+						width: 13px;
+						height: 13px;
+						margin: 6px 0;
+					}
 	#menu-buttons {
 		float: right;
 	}

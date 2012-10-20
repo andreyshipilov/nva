@@ -1,0 +1,26 @@
+{% load pages_tags %}
+
+<ul>
+	{% url home as home %}
+	{% ifnotequal request.path home %}
+		<li id="menu-main-home">
+			<a href="{{ home }}"><i></i></a>
+		</li>
+	{% endifnotequal %}
+	
+	{% for page in page_branch %}
+		{% if page.in_menu %}
+			<li{% if page.is_current_or_ascendant %} class="active"{% endif %}>
+				{% if page.is_current_or_ascendant %}
+					{% if request.path == page.get_absolute_url %}
+						<span class="active">{{ page.title }}</span>
+					{% else %}
+						<a href="{{ page.get_absolute_url }}" title="{{ page.title }}" class="active">{{ page.title }}</a>
+					{% endif %}
+				{% else %}
+					<a href="{{ page.get_absolute_url }}" title="{{ page.title }}">{{ page.title }}</a>
+				{% endif %}
+			</li>
+		{% endif %}
+	{% endfor %}
+</ul>
