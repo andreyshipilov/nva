@@ -1,0 +1,18 @@
+{% load pages_tags %}
+
+<ul{% if page.branch_level > 0 %} class="inner"{% endif %}>
+	{% for page in page_branch %}
+		{% if page.in_menu %}
+			<li>
+				{% ifequal request.path page.get_absolute_url %}
+					<span>{{ page.title }}</span>
+				{% else %}
+					<a href="{{ page.get_absolute_url }}">{{ page.title }}</a>
+				{% endifequal %}
+				{% if page.is_current_or_ascendant %}
+					{% page_menu page %}
+				{% endif %}
+			</li>
+		{% endif %}
+	{% endfor %}
+</ul>

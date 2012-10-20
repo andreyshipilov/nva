@@ -1,0 +1,57 @@
+{% load compress pages_tags %}{% spaceless %}<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<title>{% block meta_title %}{% endblock %}{% if settings.SITE_TITLE %} / {{ settings.SITE_TITLE }}{% endif %}</title>
+		
+		{% compress css %}
+			<link rel="stylesheet" href="{{ STATIC_URL }}css/reset.css" />
+			<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" />
+		{% endcompress %}
+		
+		<!--[if lt IE 9]>
+			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div id="page">
+			<div id="top" class="clearfix">
+				<a href="{% url home %}" title="{{ settings.SITE_TITLE }}">
+					<h1>{{ settings.SITE_TITLE }}</h1>
+				</a>
+				<div id="top-menu">
+					<div id="top-phone"></div>
+					{% page_menu "pages/menus/top-right.html" %}
+				</div>
+			</div>
+			<div id="menu" class="clearfix">
+				{% page_menu "pages/menus/top-left.html" %}
+				{% page_menu "pages/menus/top-right-buttons.html" %}
+			</div>
+			<div id="big-title">
+				{% for page in page_branch %}
+					{% if page.is_primary and page.is_current_or_ascendant %}
+						<h1>{{ page.title }}</h1>
+					{% endif %}
+				{% endfor %}
+			</div>
+			<div id="content" class="clearfix">
+				<div id="content-tree">
+					{% page_menu "pages/menus/left-tree.html" %}
+					<br />
+				</div>
+				<div id="content-main">
+					<h1>{% block title %}{% endblock %}</h1>
+					{% block main %}{% endblock %}
+				</div>
+			</div>
+			<div id="footer" class="clearfix">
+				<div id="footer-logo"></div>
+				<div id="footer-menu">
+					{% page_menu "pages/menus/footer.html" %}
+					<p>&copy; НВА Центр, {% now "Y" %}. Все права защищены.</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>{% endspaceless %}
