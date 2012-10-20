@@ -32,17 +32,19 @@
 					{% page_menu "pages/menus/top-right-buttons.html" %}
 				</div>
 			</div>
-			<div id="big-title">
-				{% for page in page_branch %}
-					{% if page.is_primary and page.is_current_or_ascendant %}
-						{% if request.path == page.get_absolute_url %}
-							<h1>{{ page.title }}</h1>
-						{% else %}
-							<h1><a href="{{ page.get_absolute_url }}">{{ page.title }}</a></h1>
+			{% block big_title %}
+				<div id="big-title">
+					{% for page in page_branch %}
+						{% if page.is_primary and page.is_current_or_ascendant %}
+							{% if request.path == page.get_absolute_url %}
+								<h1>{{ page.title }}</h1>
+							{% else %}
+								<h1><a href="{{ page.get_absolute_url }}">{{ page.title }}</a></h1>
+							{% endif %}
 						{% endif %}
-					{% endif %}
-				{% endfor %}
-			</div>
+					{% endfor %}
+				</div>
+			{% endblock %}
 			<div id="content" class="clearfix">
 				{% block all_content %}
 					<div id="content-tree">

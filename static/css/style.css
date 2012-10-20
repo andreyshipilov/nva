@@ -206,6 +206,7 @@ em {
 		}
 			#people-talk em {
 				font: italic 0.9em Georgia, serif;
+				line-height: 25px;
 			}
 		#people-talk a {
 			color: #fff;
@@ -241,7 +242,28 @@ em {
 			float: left;
 			white-space: nowrap;
 		}
-		
+
+/* Index */
+#index-content {
+	margin: 25px 0;
+}
+	#index-news {
+		width: 275px;
+		margin-left: 25px;
+		color: #aaa;
+	}
+		#index-news td {
+			padding: 0 5px 25px 0;
+		}
+		#index-news a {
+			color: #4498e0;
+		}
+		#news-link {
+			color: #000 !important;
+			line-height: 50px;
+			font-size: 1.3em;
+		}
+
 /* News */
 #news-list {
 	width: 100%;
