@@ -277,7 +277,9 @@ INSTALLED_APPS = (
     #"mezzanine.mobile",
 
     "typogrify",
+    "sorl.thumbnail",
     "news",
+    "people",
 )
 
 # List of processors used by RequestContext to populate the context.
@@ -293,6 +295,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.request",
     "django.core.context_processors.tz",
     "mezzanine.conf.context_processors.settings",
+    "people.context_processors.add_random_human",
 )
 
 # List of middleware classes to use. Order is important; in the request phase,

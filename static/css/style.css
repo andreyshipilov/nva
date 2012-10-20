@@ -17,6 +17,9 @@ body {
 a {
 	color: #555;
 }
+em {
+	font-style: italic;
+}
 
 /* Project CSS */
 #page {
@@ -172,6 +175,50 @@ a {
 	#content h1 {
 		font: normal 2em Cambria, serif;
 	}
+#people {
+	position: relative;
+	margin: 25px 0;
+	background-color: #ddd;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-o-border-radius: 5px;
+}
+	#people-image {
+		position: absolute;
+		left: 5%;
+		bottom: 0;
+		line-height: 0;
+	}
+	#people-talk {
+		width: 700px;
+		text-align: center;
+		margin-left: 200px;
+		padding: 12.5px 0;
+	}
+		#people-talk h1 {
+			font-size: 2em;
+			line-height: 1.2em;
+		}
+		#people-talk p {
+			color: #402c8f;
+			margin: 0.5em 0;
+		}
+			#people-talk em {
+				font: italic 0.9em Georgia, serif;
+			}
+		#people-talk a {
+			color: #fff;
+			text-shadow: 0 -1px 0 #000;
+			text-decoration: none;
+			border-radius: 5px;
+			-moz-border-radius: 5px;
+			-webkit-border-radius: 5px;
+			-o-border-radius: 5px;
+			background-color: #1a96d6;
+			padding: 5px 12.5px;
+			line-height: 25px;
+		}
 #footer {
 	margin: 75px 0 25px;
 }

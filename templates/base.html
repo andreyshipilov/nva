@@ -1,4 +1,4 @@
-{% load compress pages_tags %}{% spaceless %}<!doctype html>
+{% load compress pages_tags typogrify_tags %}{% spaceless %}<!doctype html>
 <html>
 	<head>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
@@ -53,6 +53,16 @@
 						{% block main %}{% endblock %}
 					</div>
 				{% endblock %}
+			</div>
+			<div id="people">
+				<div id="people-image">
+					<img src="{{ MEDIA_URL }}{{ human.image }}" width="{{ human.image.width }}" height="{{ human.image.height }}" alt="{{ human.full_name }}" />
+				</div>
+				<div id="people-talk">
+					<h1>&laquo;{{ human.quote|typogrify }}&raquo;</h1>
+					<p><em>&mdash; {{ human.full_name }}. {{ human.position }}.</em></p>
+					<p><a href="mailto:{{ human.email }}">Написать</a></p>
+				</div>
 			</div>
 			<div id="footer" class="clearfix">
 				<div id="footer-logo"></div>
