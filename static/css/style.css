@@ -10,6 +10,7 @@ html {
 }
 body {
 	font: normal 1em/1.3em Arial, sans-serif;
+	background: url('/static/page-bg.jpg') no-repeat 0 100% #fff;
 }
 a {
 	color: #555;
@@ -17,8 +18,9 @@ a {
 
 /* Project CSS */
 #page {
-	width: 1000px;
+	width: 950px;
 	margin: 0 auto;
+	padding: 0 25px;
 }
 #top {
 	margin: 25px 0 50px;
@@ -29,6 +31,11 @@ a {
 		width: 200px;
 		height: 60px;
 		background-color: #ddd;
+	}
+	#top-phone {
+		float: right;
+		font-size: 1.75em;
+		color: #1d97da;
 	}
 	#top-menu {
 		width: 50%;
