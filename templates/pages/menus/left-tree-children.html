@@ -1,13 +1,13 @@
-{% load pages_tags %}
+{% load pages_tags typogrify_tags %}
 
 <ul{% if page.branch_level > 0 %} class="inner"{% endif %}>
 	{% for page in page_branch %}
 		{% if page.in_menu %}
 			<li>
 				{% ifequal request.path page.get_absolute_url %}
-					<span>{{ page.title }}</span>
+					<span>{{ page.title|typogrify }}</span>
 				{% else %}
-					<a href="{{ page.get_absolute_url }}">{{ page.title }}</a>
+					<a href="{{ page.get_absolute_url }}">{{ page.title|typogrify }}</a>
 				{% endifequal %}
 				{% if page.is_current_or_ascendant %}
 					{% page_menu page %}

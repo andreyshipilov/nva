@@ -315,6 +315,7 @@ OPTIONAL_APPS = (
     "debug_toolbar",
     "django_extensions",
     "compressor",
+    "typogrify",
     PACKAGE_NAME_FILEBROWSER,
     PACKAGE_NAME_GRAPPELLI,
 )

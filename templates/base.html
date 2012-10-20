@@ -25,8 +25,12 @@
 				</div>
 			</div>
 			<div id="menu" class="clearfix">
-				{% page_menu "pages/menus/top-left.html" %}
-				{% page_menu "pages/menus/top-right-buttons.html" %}
+				<div id="menu-main">
+					{% page_menu "pages/menus/top-left.html" %}
+				</div>
+				<div id="menu-buttons">
+					{% page_menu "pages/menus/top-right-buttons.html" %}
+				</div>
 			</div>
 			<div id="big-title">
 				{% for page in page_branch %}
