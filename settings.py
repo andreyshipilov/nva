@@ -177,6 +177,8 @@ STATICFILES_FINDERS = (
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
+SLUGIFY = "pytils.translit.slugify"
+
 
 #############
 # DATABASES #

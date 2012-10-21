@@ -131,13 +131,13 @@ em {
 			}
 #big-title {
 	background: url('/static/big-title-bg.jpg') no-repeat 0 100% #1a96d6;
+	color: #fff;
+	text-align: center;
+	margin: 25px 0;
 	border-radius: 5px;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	-o-border-radius: 5px;
-	color: #fff;
-	text-align: center;
-	margin: 25px 0;
 }
 	#big-title h1 {
 		font: normal 4em/175px Cambria, sans-serif;
@@ -212,13 +212,13 @@ em {
 			color: #fff;
 			text-shadow: 0 -1px 0 #000;
 			text-decoration: none;
+			background-color: #1a96d6;
+			padding: 5px 12.5px;
+			line-height: 25px;
 			border-radius: 5px;
 			-moz-border-radius: 5px;
 			-webkit-border-radius: 5px;
 			-o-border-radius: 5px;
-			background-color: #1a96d6;
-			padding: 5px 12.5px;
-			line-height: 25px;
 		}
 #footer {
 	margin: 75px 0 25px;
@@ -249,8 +249,9 @@ em {
 }
 	#index-news {
 		width: 275px;
-		margin-left: 25px;
+		margin: 0 25px;
 		color: #aaa;
+		float: left;
 	}
 		#index-news td {
 			padding: 0 5px 25px 0;
@@ -260,9 +261,52 @@ em {
 		}
 		#news-link {
 			color: #000 !important;
-			line-height: 50px;
+			line-height: 37px; /* 37 + 2px border */
 			font-size: 1.3em;
 		}
+	#index-projects {
+		width: 623px; /* 625px - 2px border*/
+		float: left;
+		border: 1px solid #bbb;
+		border-radius: 5px;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-o-border-radius: 5px;
+	}
+		#index-project-top {
+			margin: 5px;
+			text-align: center;
+		}
+			#projects-prev,
+			#projects-next {
+				font-family: Times;
+				font-size: 1.5em;
+				line-height: 25px;
+				display: block;
+				width: 25px;
+				text-decoration: none;
+				text-align: center;
+				border: 1px solid #bbb;
+				border-radius: 5px;
+				-moz-border-radius: 5px;
+				-webkit-border-radius: 5px;
+				-o-border-radius: 5px;
+			}
+			#projects-prev:hover,
+			#projects-next:hover {
+				background-color: #ddd;
+			}
+			#projects-prev {
+				float: left;
+			}
+			#projects-next {
+				float: right;
+			}
+			#projects-link {
+				color: #000 !important;
+				line-height: 25px;
+				font-size: 1.3em;
+			}
 
 /* News */
 #news-list {

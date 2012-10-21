@@ -4,7 +4,7 @@ from os.path import splitext
 
 from django.db import models
 
-from sorl.thumbnail import ImageField
+from sorl.thumbnail import ImageField, default
 
 
 class Human(models.Model):
@@ -28,3 +28,13 @@ class Human(models.Model):
     @staticmethod
     def get_random():
         return Human.objects.order_by('?')[0]
+    
+    #def width(self):
+    #    image = default.engine.get_image(self.image)
+    #    print image
+    #    return default.engine.get_image_size(image)[0]
+    #
+    #def height(self):
+    #    image = default.engine.get_image(self.image)
+    #    print image
+    #    return default.engine.get_image_size(image)[0]

@@ -1,6 +1,5 @@
 {% load pages_tags %}
 
-{% spaceless %}
 {% if page_branch_in_menu %}
 	{% for page in page_branch %}
 		{% if page.is_current_or_ascendant and page.has_children %}
@@ -8,4 +7,3 @@
 		{% endif %}
 	{% endfor %}
 {% endif %}
-{% endspaceless %}
