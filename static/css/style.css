@@ -247,6 +247,20 @@ em {
 #index-content {
 	margin: 25px 0;
 }
+	#index-gallery {
+		line-height: 500px;
+		color: #fff;
+		font-size: 5em;
+		
+		margin: 25px 0;
+		height: 500px;
+		text-align: center;
+		background-color: #584596;
+		border-radius: 5px;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-o-border-radius: 5px;
+	}
 	#index-news {
 		width: 275px;
 		margin: 0 25px;
@@ -261,8 +275,8 @@ em {
 		}
 		#news-link {
 			color: #000 !important;
-			line-height: 37px; /* 37 + 2px border */
-			font-size: 1.3em;
+			line-height: 53px;
+			font-size: 1.4em;
 		}
 	#index-projects {
 		width: 623px; /* 625px - 2px border*/
@@ -274,7 +288,7 @@ em {
 		-o-border-radius: 5px;
 	}
 		#index-project-top {
-			margin: 5px;
+			margin: 12.5px;
 			text-align: center;
 		}
 			#projects-prev,
@@ -305,7 +319,29 @@ em {
 			#projects-link {
 				color: #000 !important;
 				line-height: 25px;
+				font-size: 1.4em;
+			}
+		#index-project-content {
+			margin: 12.5px;
+		}
+			#index-project-content-left,
+			#index-project-content-right {
+				width: 30%;
+				margin: 0 10%;
+				text-align: center;
+				float: left;
+			}
+			#index-project-content .client-title {
+				color: #bbb;
+			}
+			#index-project-content .project-title {
+				color: #000;
 				font-size: 1.3em;
+				line-height: 1.3em;
+			}
+			#index-project-content .project-description {
+				color: #4498e0;
+				font: italic 0.9em Georgia, serif;
 			}
 
 /* News */

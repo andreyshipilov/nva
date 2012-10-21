@@ -7,6 +7,9 @@
 
 {% block all_content %}
 	<div id="index-content" class="clearfix">
+		<div id="index-gallery">
+			Here be dragons.
+		</div>
 		<div id="index-news">
 			<a href="{% url news_index %}" id="news-link">Новости</a>
 			<table>
@@ -28,10 +31,26 @@
 				<a href="/projects/" id="projects-link">Проекты</a>
 				<a href="#" id="projects-next">&rarr;</a>
 			</div>
-			<div id="index-project-content">
+			<div id="index-project-content" class="clearfix">
 				<div id="index-project-content-left">
+					<p>
+						<img src="{{ MEDIA_URL }}{{ projects.0.image }}" alt="{{ projects.0.project_title }}" />
+					</p>
+					<p class="client-title">{{ projects.0.client_title }}</p>
+					<p class="project-title">
+						<a href="{{ projects.0.get_absolute_url }}">{{ projects.0.project_title }}</a>
+					</p>
+					<p class="project-description">{{ projects.0.project_description }}</p>
 				</div>
 				<div id="index-project-content-right">
+					<p>
+						<img src="{{ MEDIA_URL }}{{ projects.1.image }}" alt="{{ projects.1.project_title }}" />
+					</p>
+					<p class="client-title">{{ projects.1.client_title }}</p>
+					<p class="project-title">
+						<a href="{{ projects.1.get_absolute_url }}">{{ projects.1.project_title }}</a>
+					</p>
+					<p class="project-description">{{ projects.1.project_description }}</p>
 				</div>
 			</div>
 		</div>

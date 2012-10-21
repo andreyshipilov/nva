@@ -4,10 +4,10 @@ from django.contrib import admin
 from mezzanine.core.views import direct_to_template
 
 from news.models import NewsItem
+from projects.models import Project
 
 
 admin.autodiscover()
-
 urlpatterns = patterns("",
     url(r"^news/", include("news.urls")),
     ("^admin/", include(admin.site.urls)),
@@ -15,6 +15,7 @@ urlpatterns = patterns("",
         "template": "index.html",
         "extra_context": {
             "news": NewsItem.get_published()[:4],
+            "projects": Project.objects.all(),
         }
     }, name="home"),
     ("^", include("mezzanine.urls")),

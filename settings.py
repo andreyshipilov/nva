@@ -282,6 +282,7 @@ INSTALLED_APPS = (
     "sorl.thumbnail",
     "news",
     "people",
+    "projects",
 )
 
 # List of processors used by RequestContext to populate the context.
