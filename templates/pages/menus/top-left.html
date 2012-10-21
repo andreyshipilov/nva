@@ -1,12 +1,11 @@
 {% load pages_tags %}
 
 <ul>
-	{% url home as home %}
-	{% ifnotequal request.path home %}
+	{% if not on_home %}
 		<li id="menu-main-home">
-			<a href="{{ home }}"><i></i></a>
+			<a href="{% url home %}"><i></i></a>
 		</li>
-	{% endifnotequal %}
+	{% endif %}
 	
 	{% for page in page_branch %}
 		{% if page.in_menu %}
