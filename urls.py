@@ -14,7 +14,7 @@ urlpatterns = patterns("",
     url("^$", direct_to_template, {
         "template": "index.html",
         "extra_context": {
-            "news": NewsItem.get_published()[:4],
+            "news": NewsItem.objects.published()[:3],
             "projects": Project.objects.all(),
         }
     }, name="home"),

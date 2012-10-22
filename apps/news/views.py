@@ -5,7 +5,7 @@ from .models import NewsItem
 
 
 class Index(ListView):
-    model = NewsItem
+    queryset = NewsItem.objects.published()
     
 class Item(DetailView):
     model = NewsItem

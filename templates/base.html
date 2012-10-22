@@ -22,7 +22,7 @@
 					<h1>{{ settings.SITE_TITLE }}</h1>
 				</a>
 				<div id="top-menu">
-					<div id="top-phone">+7 492 229-03-56</div>
+					<div id="top-phone"><b>+7 492 229-03-56</b></div>
 					{% page_menu "pages/menus/top-right.html" %}
 				</div>
 			</div>
@@ -60,7 +60,7 @@
 			</div>
 			<div id="people">
 				<div id="people-image">
-					<img src="{{ MEDIA_URL }}{{ human.image }}" width="{{ human.image.width }}" height="{{ human.image.height }}" alt="{{ human.full_name }}" />
+					<img src="{{ human.image.url }}" width="{{ human.image.width }}" height="{{ human.image.height }}" alt="{{ human.full_name }}" />
 				</div>
 				<div id="people-talk">
 					<h1>&laquo;{{ human.quote|typogrify }}&raquo;</h1>

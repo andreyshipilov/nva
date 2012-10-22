@@ -33,8 +33,8 @@
 			</div>
 			<div id="index-project-content" class="clearfix">
 				<div id="index-project-content-left">
-					<p>
-						<img src="{{ MEDIA_URL }}{{ projects.0.image }}" alt="{{ projects.0.project_title }}" />
+					<p class="project-image">
+						<img src="{{ projects.0.image.url }}" alt="{{ projects.0.project_title }}" />
 					</p>
 					<p class="client-title">{{ projects.0.client_title }}</p>
 					<p class="project-title">
@@ -43,8 +43,8 @@
 					<p class="project-description">{{ projects.0.project_description }}</p>
 				</div>
 				<div id="index-project-content-right">
-					<p>
-						<img src="{{ MEDIA_URL }}{{ projects.1.image }}" alt="{{ projects.1.project_title }}" />
+					<p class="project-image">
+						<img src="{{ projects.1.image.url }}" alt="{{ projects.1.project_title }}" />
 					</p>
 					<p class="client-title">{{ projects.1.client_title }}</p>
 					<p class="project-title">

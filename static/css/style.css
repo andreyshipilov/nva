@@ -6,11 +6,11 @@
 
 /* Common CSS */
 html {
-	font-size: 80%;
+	font-size: 85%;
 	background: url('/static/page-bottom-bg.jpg') no-repeat 0 100% #fff;
 }
 body {
-	font: normal 1em/1.3em Arial, sans-serif;
+	font: normal 1em/1.3em Calibri, sans-serif;
 	background: url('/static/page-top-bg.jpg') no-repeat 100% 0 transparent;
 	padding-top: 25px;
 }
@@ -19,6 +19,9 @@ a {
 }
 em {
 	font-style: italic;
+}
+b {
+	font-weight: bold;
 }
 
 /* Project CSS */
@@ -39,7 +42,7 @@ em {
 	}
 	#top-phone {
 		float: right;
-		font-size: 1.75em;
+		font-size: 2em;
 		color: #1d97da;
 	}
 	#top-menu {
@@ -140,7 +143,7 @@ em {
 	-o-border-radius: 5px;
 }
 	#big-title h1 {
-		font: normal 4em/175px Cambria, sans-serif;
+		font: bold 4em/175px Calibri, sans-serif;
 	}
 	#big-title h1 a {
 		color: #fff;
@@ -152,6 +155,10 @@ em {
 		margin: 0 25px;
 		color: #66ccff;
 	}
+		#content-tree ul {
+			margin: 0 !important;
+			list-style-type: none !important;
+		}
 		#content-tree ul li {
 			margin-bottom: 0.5em;
 		}
@@ -170,11 +177,22 @@ em {
 		margin: 0 25px 0 0;
 	}
 	#content p {
-		margin: 0 0 1em 0;
+		margin: 0 0 25px 0;
 	}
 	#content h1 {
-		font: normal 2em Cambria, serif;
+		font: bold 2em/1em Calibri, serif;
+		margin: 0 0 1em;
 	}
+	#content ul {
+		margin: 1em 0 1em 2em;
+		list-style-type: disc;
+	}
+		#content ul li {
+			margin: 0.5em 0;
+		}
+		#content ul ul {
+			list-style-type: circle;
+		}
 #people {
 	position: relative;
 	margin: 25px 0;
@@ -222,6 +240,7 @@ em {
 		}
 #footer {
 	margin: 75px 0 25px;
+	font-size: 0.9em;
 }
 	#footer-logo {
 		float: left;
@@ -342,6 +361,9 @@ em {
 			#index-project-content .project-description {
 				color: #4498e0;
 				font: italic 0.9em Georgia, serif;
+			}
+			#index-project-content .project-image {
+				margin-bottom: 0;
 			}
 
 /* News */
