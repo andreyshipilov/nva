@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 from os.path import splitext
 
 from django.db import models

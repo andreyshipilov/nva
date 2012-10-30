@@ -27,6 +27,14 @@ b {
 	font-weight: bold;
 }
 
+/* Useful */
+.clear-top {
+	margin-top: 0 !important;
+}
+.clear-bottom {
+	margin-bottom: : 0 !important;
+}
+
 /* Project CSS */
 #page {
 	width: 950px;
@@ -156,6 +164,17 @@ b {
 		color: #fff;
 	}
 #content {}
+	#content p {
+		margin: 0 0 25px 0;
+	}
+	#content h1 {
+		font: bold 2em/1em Calibri, serif;
+		margin: 0 0 1em;
+	}
+	#content h2 {
+		font: bold 1.5em/1em Calibri, serif;
+		margin: 1em 0 0.5em;
+	}
 	#content-tree {
 		float: left;
 		width: 200px;
@@ -179,17 +198,6 @@ b {
 		float: left;
 		width: 675px;
 		margin: 0 25px 0 0;
-	}
-	#content-main p {
-		margin: 0 0 25px 0;
-	}
-	#content-main h1 {
-		font: bold 2em/1em Calibri, serif;
-		margin: 0 0 1em;
-	}
-	#content-main h2 {
-		font: bold 1.5em/1em Calibri, serif;
-		margin: 1em 0 0.5em;
 	}
 	#content-main ul {
 		margin: 1em 0 1em 2em;
@@ -397,3 +405,19 @@ b {
 		padding-right: 25px;
 		color: #999;
 	}
+
+/* Reviews */
+#reviews-list {}
+	#reviews-list .review {
+		margin-bottom: 25px;
+	}
+		#reviews-list .review-left {
+			float: left;
+			width: 220px;
+			font-style: italic;
+		}
+		#reviews-list .review-right {
+			float: left;
+			width: 705px;
+			margin-left: 25px;
+		}

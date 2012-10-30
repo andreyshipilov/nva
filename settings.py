@@ -31,6 +31,11 @@ PATHS = (
 #     ("Site", ("sites.Site", "redirects.Redirect", "conf.Setting")),
 #     ("Users", ("auth.User", "auth.Group",)),
 # )
+ADMIN_MENU_ORDER = (
+    ("Content", ("pages.Page", ("Media Library", "fb_browse"),)),
+    ("Site", ("sites.Site", "redirects.Redirect", "conf.Setting")),
+    ("Users", ("auth.User", "auth.Group",)),
+)
 
 # A three item sequence, each containing a sequence of template tags
 # used to render the admin dashboard.
@@ -286,6 +291,7 @@ INSTALLED_APPS = (
     "news",
     "people",
     "projects",
+    "reviews",
 )
 
 # List of processors used by RequestContext to populate the context.
