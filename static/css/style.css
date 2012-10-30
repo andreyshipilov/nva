@@ -413,11 +413,12 @@ b {
 	}
 		#reviews-list .review-left {
 			float: left;
-			width: 220px;
+			width: 200px;
+			margin: 0 25px;
 			font-style: italic;
 		}
 		#reviews-list .review-right {
 			float: left;
-			width: 705px;
-			margin-left: 25px;
+			width: 675px;
+			margin-right: 25px;
 		}

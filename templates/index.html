@@ -34,23 +34,23 @@
 			<div id="index-project-content" class="clearfix">
 				<div id="index-project-content-left">
 					<p class="project-image">
-						<img src="{{ projects.0.image.url }}" alt="{{ projects.0.project_title }}" />
+						<img src="{{ projects.0.client.image.url }}" alt="{{ projects.0.title }}" />
 					</p>
-					<p class="client-title">{{ projects.0.client_title }}</p>
+					<p class="client-title">{{ projects.0.client.title }}</p>
 					<p class="project-title">
-						<a href="{{ projects.0.get_absolute_url }}">{{ projects.0.project_title }}</a>
+						<a href="{{ projects.0.get_absolute_url }}">{{ projects.0.title }}</a>
 					</p>
-					<p class="project-description">{{ projects.0.project_description }}</p>
+					<p class="project-description">{{ projects.0.description }}</p>
 				</div>
 				<div id="index-project-content-right">
 					<p class="project-image">
-						<img src="{{ projects.1.image.url }}" alt="{{ projects.1.project_title }}" />
+						<img src="{{ projects.1.client.image.url }}" alt="{{ projects.1.title }}" />
 					</p>
-					<p class="client-title">{{ projects.1.client_title }}</p>
+					<p class="client-title">{{ projects.1.client.title }}</p>
 					<p class="project-title">
-						<a href="{{ projects.1.get_absolute_url }}">{{ projects.1.project_title }}</a>
+						<a href="{{ projects.1.get_absolute_url }}">{{ projects.1.title }}</a>
 					</p>
-					<p class="project-description">{{ projects.1.project_description }}</p>
+					<p class="project-description">{{ projects.1.description }}</p>
 				</div>
 			</div>
 		</div>
