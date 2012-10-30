@@ -6,9 +6,12 @@ from mezzanine.core.fields import RichTextField
 from mezzanine.core.models import Displayable
 from mezzanine.core.managers import PublishedManager
 
+from projects.models import Project
+
 
 class NewsItem(Displayable):
     full_text = RichTextField(verbose_name=u'текст новости')
+    project = models.ForeignKey(Project, blank=True,)
     objects = PublishedManager()
     
     class Meta:

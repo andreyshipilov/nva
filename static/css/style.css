@@ -17,6 +17,9 @@ body {
 a {
 	color: #555;
 }
+	a:hover {
+		color: #222;
+	}
 em {
 	font-style: italic;
 }
@@ -160,18 +163,15 @@ b {
 		color: #66ccff;
 	}
 		#content-tree ul {
-			margin: 0 !important;
-			list-style-type: none !important;
+			margin: 0;
+			list-style-type: none;
 		}
 		#content-tree ul li {
 			margin-bottom: 0.5em;
 		}
 		#content-tree ul.inner {
-			margin: 0.5em 0 0 25px;
+			margin: 0.5em 0 0 25px !important;
 		}
-			#content-tree ul.inner a {
-				color: #666;
-			}
 		#content-tree a {
 			color: #000;
 		}
@@ -180,21 +180,25 @@ b {
 		width: 675px;
 		margin: 0 25px 0 0;
 	}
-	#content p {
+	#content-main p {
 		margin: 0 0 25px 0;
 	}
-	#content h1 {
+	#content-main h1 {
 		font: bold 2em/1em Calibri, serif;
 		margin: 0 0 1em;
 	}
-	#content ul {
+	#content-main h2 {
+		font: bold 1.5em/1em Calibri, serif;
+		margin: 1em 0 0.5em;
+	}
+	#content-main ul {
 		margin: 1em 0 1em 2em;
 		list-style-type: disc;
 	}
-		#content ul li {
+		#content-main ul li {
 			margin: 0.5em 0;
 		}
-		#content ul ul {
+		#content-main ul ul {
 			list-style-type: circle;
 		}
 #people {
@@ -360,6 +364,9 @@ b {
 				margin: 0 10%;
 				text-align: center;
 				float: left;
+			}
+			#index-project-content p {
+				margin: 12.5px 0;
 			}
 			#index-project-content .client-title {
 				color: #bbb;
