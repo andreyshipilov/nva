@@ -11,9 +11,8 @@ class Client(models.Model):
     title = models.CharField(verbose_name=u"название клиента", max_length=200,
                              unique=True,)
     image = ImageField(verbose_name=u"изображение",
-                       help_text=u"PNG файл с прозрачным фоном.",
-                       upload_to=lambda i, f: "project/%s%s" % \
-                                 (urandom(16).encode("hex"), splitext(f)[1]),
+                       upload_to=lambda i, f: "projects/clients/%s%s" % \
+                           (urandom(16).encode("hex"), splitext(f)[1].lower()),
                        blank=True,)
     
     class Meta:

@@ -60,12 +60,18 @@
 			</div>
 			<div id="people">
 				<div id="people-image">
-					<img src="{{ human.image.url }}" width="{{ human.image.width }}" height="{{ human.image.height }}" alt="{{ human.full_name }}" />
+					<img src="{{ human.image.url }}" alt="{{ human.full_name }}" />
 				</div>
 				<div id="people-talk">
 					<h1>&laquo;{{ human.quote|typogrify }}&raquo;</h1>
-					<p><em>&mdash; {{ human.full_name }}. {{ human.position }}.</em></p>
-					<p><a href="mailto:{{ human.email }}">Написать</a></p>
+					<p>
+						<em>&mdash; {{ human.full_name }}. {{ human.position }}.</em>
+					</p>
+					{% if human.email %}
+						<p>
+							<a href="mailto:{{ human.email }}">Написать</a>
+						</p>
+					{% endif %}
 				</div>
 			</div>
 			<div id="footer" class="clearfix">

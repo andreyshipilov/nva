@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from os.path import join, abspath, dirname
 import sys
 
@@ -35,6 +36,9 @@ ADMIN_MENU_ORDER = (
     ("Content", ("pages.Page", ("Media Library", "fb_browse"),)),
     ("Site", ("sites.Site", "redirects.Redirect", "conf.Setting")),
     ("Users", ("auth.User", "auth.Group",)),
+    
+    (u"Компания", ("news.NewsItem", "reviews.Review", "people.Human",)),
+    (u"Лицензии и Патенты", ("legal.License", "legal.Patent")),
 )
 
 # A three item sequence, each containing a sequence of template tags
@@ -292,6 +296,7 @@ INSTALLED_APPS = (
     "people",
     "projects",
     "reviews",
+    "legal",
 )
 
 # List of processors used by RequestContext to populate the context.
