@@ -10,49 +10,56 @@
 		<div id="index-gallery">
 			Here be dragons.
 		</div>
-		<div id="index-news">
-			<a href="{% url news_index %}" id="news-link">Новости</a>
-			<table>
-				{% for item in news %}
-					<tr>
-						<td>&mdash;&nbsp;</td>
-						<td>
-							<a href="{{ item.get_absolute_url }}" title="{{ item.title }}">{{ item.title|typogrify }}</a>
-							<br />
-							<span>{{ item.publish_date|date:"j E, Y" }}</span>
-						</td>
-					</tr>
-				{% endfor %}
-			</table>
-		</div>
-		<div id="index-projects">
-			<div id="index-project-top" class="clearfix">
-				<a href="#" id="projects-prev">&larr;</a>
-				<a href="/projects/" id="projects-link">Проекты</a>
-				<a href="#" id="projects-next">&rarr;</a>
+
+		{% if news %}
+			<div id="index-news">
+				<a href="{% url news_index %}" id="news-link">Новости</a>
+				<table>
+					{% for item in news %}
+						<tr>
+							<td>&mdash;&nbsp;</td>
+							<td>
+								<a href="{{ item.get_absolute_url }}" title="{{ item.title }}">{{ item.title|typogrify }}</a>
+								<br />
+								<span>{{ item.publish_date|date:"j E, Y" }}</span>
+							</td>
+						</tr>
+					{% endfor %}
+				</table>
 			</div>
-			<div id="index-project-content" class="clearfix">
-				<div id="index-project-content-left">
-					<p class="project-image">
-						<img src="{{ projects.0.client.image.url }}" alt="{{ projects.0.title }}" />
-					</p>
-					<p class="client-title">{{ projects.0.client.title }}</p>
-					<p class="project-title">
-						<a href="{{ projects.0.get_absolute_url }}">{{ projects.0.title }}</a>
-					</p>
-					<p class="project-description">{{ projects.0.description }}</p>
+		{% endif %}
+
+		{% if projects %}
+			<div id="index-projects">
+				<div id="index-project-top" class="clearfix">
+					<a href="#" id="projects-prev">&larr;</a>
+					<a href="/projects/" id="projects-link">Проекты</a>
+					<a href="#" id="projects-next">&rarr;</a>
 				</div>
-				<div id="index-project-content-right">
-					<p class="project-image">
-						<img src="{{ projects.1.client.image.url }}" alt="{{ projects.1.title }}" />
-					</p>
-					<p class="client-title">{{ projects.1.client.title }}</p>
-					<p class="project-title">
-						<a href="{{ projects.1.get_absolute_url }}">{{ projects.1.title }}</a>
-					</p>
-					<p class="project-description">{{ projects.1.description }}</p>
+				<div id="index-project-content" class="clearfix">
+					<div id="index-project-content-left">
+						<p class="project-image">
+							<img src="{{ projects.0.client.image.url }}" alt="{{ projects.0.title }}" />
+						</p>
+						<p class="client-title">{{ projects.0.client.title }}</p>
+						<p class="project-title">
+							<a href="{{ projects.0.get_absolute_url }}">{{ projects.0.title }}</a>
+						</p>
+						<p class="project-description">{{ projects.0.description }}</p>
+					</div>
+					<div id="index-project-content-right">
+						<p class="project-image">
+							<img src="{{ projects.1.client.image.url }}" alt="{{ projects.1.title }}" />
+						</p>
+						<p class="client-title">{{ projects.1.client.title }}</p>
+						<p class="project-title">
+							<a href="{{ projects.1.get_absolute_url }}">{{ projects.1.title }}</a>
+						</p>
+						<p class="project-description">{{ projects.1.description }}</p>
+					</div>
 				</div>
 			</div>
-		</div>
+		{% endif %}
+
 	</div>
 {% endblock %}

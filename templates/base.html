@@ -5,12 +5,12 @@
 		<title>{% block meta_title %}{% endblock %}{% if settings.SITE_TITLE %}{% block meta_title_separator %} / {% endblock %}{{ settings.SITE_TITLE }}{% endif %}</title>
 		<meta name="keywords" content="{% block meta_keywords %}{% endblock %}" />
 		<meta name="description" content="{% block meta_description %}{% endblock %}" />
-		
+
 		{% compress css %}
 			<link rel="stylesheet" href="{{ STATIC_URL }}css/reset.css" />
 			<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" />
 		{% endcompress %}
-		
+
 		<!--[if lt IE 9]>
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -34,6 +34,7 @@
 					{% page_menu "pages/menus/top-right-buttons.html" %}
 				</div>
 			</div>
+
 			{% block big_title %}
 				<div id="big-title">
 					{% for page in page_branch %}
@@ -47,6 +48,7 @@
 					{% endfor %}
 				</div>
 			{% endblock %}
+
 			<div id="content" class="clearfix">
 				{% block all_content %}
 					<div id="content-tree">
@@ -58,22 +60,26 @@
 					</div>
 				{% endblock %}
 			</div>
-			<div id="people">
-				<div id="people-image">
-					<img src="{{ human.image.url }}" alt="{{ human.full_name }}" />
-				</div>
-				<div id="people-talk">
-					<h1>&laquo;{{ human.quote|typogrify }}&raquo;</h1>
-					<p>
-						<em>&mdash; {{ human.full_name }}. {{ human.position }}.</em>
-					</p>
-					{% if human.email %}
+
+			{% if human %}
+				<div id="people">
+					<div id="people-image">
+						<img src="{{ human.image.url }}" alt="{{ human.full_name }}" />
+					</div>
+					<div id="people-talk">
+						<h1>&laquo;{{ human.quote|typogrify }}&raquo;</h1>
 						<p>
-							<a href="mailto:{{ human.email }}">Написать</a>
+							<em>&mdash; {{ human.full_name }}. {{ human.position }}.</em>
 						</p>
-					{% endif %}
+						{% if human.email %}
+							<p>
+								<a href="mailto:{{ human.email }}">Написать</a>
+							</p>
+						{% endif %}
+					</div>
 				</div>
-			</div>
+			{% endif %}
+
 			<div id="footer" class="clearfix">
 				<div id="footer-logo"></div>
 				<div id="footer-menu">

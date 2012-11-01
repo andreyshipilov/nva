@@ -28,4 +28,9 @@ class Human(models.Model):
     
     @staticmethod
     def get_random():
-        return Human.objects.order_by("?")[0]
+        humans = Human.objects.order_by("?")
+        
+        if humans:
+            return humans[0]
+        else:
+            return Human.objects.none()
