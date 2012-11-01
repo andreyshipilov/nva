@@ -4,7 +4,7 @@ from .models import Patent, License
 
 
 class Index(TemplateView):
-    template_name = "lecenses_patents.html"
+    template_name = "licenses_patents.html"
     
     def get_context_data(self, **kwargs):
         context = super(Index, self).get_context_data(**kwargs)
