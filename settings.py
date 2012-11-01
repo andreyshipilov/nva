@@ -297,6 +297,7 @@ INSTALLED_APPS = (
     "projects",
     "reviews",
     "legal",
+    "work",
 )
 
 # List of processors used by RequestContext to populate the context.

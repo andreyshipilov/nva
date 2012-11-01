@@ -30,7 +30,7 @@ class Human(models.Model):
     def get_random():
         humans = Human.objects.order_by("?")
         
-        if humans:
+        if humans.exists():
             return humans[0]
         else:
             return Human.objects.none()
