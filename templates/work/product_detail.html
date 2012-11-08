@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load typogrify_tags thumbnail %}
+
+
+{% block meta_title %}{{ product.title }}{% endblock %}
+
+{% block left_tree_menu %}
+	{% thumbnail product.image "x175" as im %}
+		<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ product.title }}" />
+	{% endthumbnail %}
+{% endblock %}
+
+
+{% block main %}
+	<h1>{{ product.title|typogrify }}</h1>
+	{{ product.text }}
+{% endblock %}

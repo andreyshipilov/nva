@@ -19,6 +19,7 @@ class ProductType(models.Model):
     def __unicode__(self):
         return self.title
 
+
 class Product(models.Model):
     is_published = models.BooleanField(default=False,
                                        verbose_name=u"показывать ли на сайте",)
@@ -47,3 +48,7 @@ class Product(models.Model):
     @staticmethod
     def get_published():
         return Human.objects.filter(is_published=True)
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('products_item', (), {'pk': self.pk})

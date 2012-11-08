@@ -38,7 +38,7 @@ ADMIN_MENU_ORDER = (
     ("Users", ("auth.User", "auth.Group",)),
     
     (u"Компания", ("news.NewsItem", "reviews.Review", "people.Human",)),
-    (u"Лицензии и Патенты", ("legal.License", "legal.Patent")),
+    (u"Лицензии и Патенты", ("legal.License", "legal.Patent")), 
 )
 
 # A three item sequence, each containing a sequence of template tags

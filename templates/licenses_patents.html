@@ -12,6 +12,7 @@
 			{% for i in licenses %}
 				{% thumbnail i.image "x200" as im %}
 					<a href="{{ i.image.url }}">
+						<div class="description">{{ i.title }}</div>
 						<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ i.title }}" />
 					</a>
 				{% endthumbnail %}
@@ -19,7 +20,7 @@
 		</div>
 	</div>
 	
-	<div id="licenses-list" class="clearfix">
+	<div id="patents-list" class="clearfix">
 		<div class="title">
 			<h2 class="clear-top">Патенты</h2>
 		</div>
@@ -27,9 +28,11 @@
 			{% for i in patents %}
 				{% thumbnail i.image "200x200" as im %}
 					<a href="{{ i.image.url }}">
+						<div class="description">{{ i.title }}</div>
 						<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ i.title }}" />
 					</a>
 				{% endthumbnail %}
 			{% endfor %}
+		</div>
 	</div>
 {% endblock %}

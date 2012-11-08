@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load typogrify_tags %}
+
+
+{% block meta_title %}Продукты{% endblock %}
+
+{% block all_content %}
+	<div id="products-list">
+		{% for category in object_list %}
+			<div class="category clearfix">
+				<div class="left">
+					<h2 class="clear-top">{{ category.title|typogrify }}</h2>
+				</div>
+				<div class="right">
+					{% for product in category.product_set.all %}
+						<a href="{{ product.get_absolute_url }}">{{ product.title }}</a>
+					{% endfor %}
+				</div>			
+			</div>
+		{% empty%}
+			<p></p>
+		{% endfor %}
+	</div>
+{% endblock %}

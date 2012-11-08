@@ -442,12 +442,46 @@ b {
 	}
 		#licenses-list a,
 		#patents-list a {
+			position: relative;
 			display: block;
 			float: left;
 			margin: 0 12.5px 5px 0;
-			border: 5px solid #eee;
+			border: 5px solid #ddd;
 			border-radius: 5px;
 			-moz-border-radius: 5px;
 			-webkit-border-radius: 5px;
 			-o-border-radius: 5px;
+		}
+			#licenses-list .description,
+			#patents-list .description {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				font-size: 0.8em;
+				background-color: #ddd;
+				line-height: 1.2em;
+				opacity: 0.8;
+				display: none;
+			}
+			#licenses-list a:hover .description,
+			#patents-list a:hover .description {
+				display: block;
+			}
+
+/* Products */
+#products-list {}
+	#products-list .category {
+		margin-bottom: 25px;
+	}
+		#products-list .left {
+			float: left;
+			width: 200px;
+			margin: 0 25px;
+		}
+		#products-list .right {
+			float: left;
+			width: 675px;
+			margin-right: 25px;
+			margin-bottom: 25px;
 		}

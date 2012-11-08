@@ -54,7 +54,9 @@
 			<div id="content" class="clearfix">
 				{% block all_content %}
 					<div id="content-tree">
-						{% page_menu "pages/menus/left-tree.html" %}
+						{% block left_tree_menu %}
+							{% page_menu "pages/menus/left-tree.html" %}
+						{% endblock %}
 						<br />
 					</div>
 					<div id="content-main">
