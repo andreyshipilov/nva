@@ -34,6 +34,9 @@ b {
 .clear-bottom {
 	margin-bottom: : 0 !important;
 }
+.gray {
+	color: #999;
+}
 
 /* Project CSS */
 #page {
@@ -179,11 +182,11 @@ b {
 		float: left;
 		width: 200px;
 		margin: 0 25px;
-		color: #66ccff;
 	}
 		#content-tree ul {
 			margin: 0;
 			list-style-type: none;
+			color: #66ccff;
 		}
 		#content-tree ul li {
 			margin-bottom: 0.5em;
@@ -211,7 +214,7 @@ b {
 		}
 #people {
 	position: relative;
-	margin: 25px 0;
+	margin: 50px 0 25px 0;
 	background-color: #ddd;
 	border-radius: 5px;
 	-moz-border-radius: 5px;
