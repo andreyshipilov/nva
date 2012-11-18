@@ -38,7 +38,7 @@ class Product(models.Model):
                                  upload_to="product_demos",
                                  verbose_name=u"файл, демо-версия продукта",)
     manager = models.ForeignKey(Manager,
-                                     verbose_name=u"менеджер продукта")
+                                verbose_name=u"менеджер продукта")
 
     class Meta:
         ordering = ("title",)
@@ -55,3 +55,21 @@ class Product(models.Model):
     @models.permalink
     def get_absolute_url(self):
         return ("products_item", (), {"pk": self.pk})
+
+
+class Service(models.Model):
+    is_published = models.BooleanField(default=False,
+                                       verbose_name=u"показывать ли на сайте",)
+    title = models.CharField(max_length=200,
+                             verbose_name=u"название услуги",)
+    text = models.TextField(verbose_name=u"описание услуги",)
+    manager = models.ForeignKey(Manager,
+                                verbose_name=u"менеджер услуги")
+
+    class Meta:
+        ordering = ("title",)
+        verbose_name = u"объект"
+        verbose_name_plural = u"услуги"
+
+    def __unicode__(self):
+        return self.title
