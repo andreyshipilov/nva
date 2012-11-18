@@ -1,15 +1,15 @@
 {% load pages_tags %}
 
 <ul>
-    {% for page in page_branch %}
-        {% if page.in_menu %}
-            <li{% if page.is_current_or_ascendant %} class="active"{% endif %}>
-                {% if page.is_current_or_ascendant %}
-                    <span>{{ page.title }}</span>
-                {% else %}
-                    <a href="{{ page.get_absolute_url }}">{{ page.title }}</a>
-                {% endif %}
-            </li>
-        {% endif %}
-    {% endfor %}
+	{% for page in page_branch %}
+		{% if page.in_menu %}
+			<li{% if page.is_current_or_ascendant %} class="active"{% endif %}>
+				{% if page.is_current_or_ascendant %}
+					<span>{{ page.title }}</span>
+				{% else %}
+					<a href="{{ page.get_absolute_url }}">{{ page.title }}</a>
+				{% endif %}
+			</li>
+		{% endif %}
+	{% endfor %}
 </ul>

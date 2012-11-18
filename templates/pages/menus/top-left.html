@@ -6,7 +6,7 @@
 			<a href="{% url home %}"><i></i></a>
 		</li>
 	{% endif %}
-	
+
 	{% for page in page_branch %}
 		{% if page.in_menu %}
 			<li{% if page.is_current_or_ascendant %} class="active"{% endif %}>

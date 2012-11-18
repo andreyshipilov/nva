@@ -8,15 +8,15 @@
 	{% thumbnail product.image "x175" as im %}
 		<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ product.title }}" />
 	{% endthumbnail %}
-        
-        {% if product.newsitem_set.exists %}
-            <h2>Новости о продукте</h2>
-            <ul>
-                {% for news in product.newsitem_set.all %}
-                    <li><span class="gray">{{ news.publish_date|date:"j E, Y" }}<br /></span><a href="{{ news.get_absolute_url }}">{{ news.title }}</a></li>
-                {% endfor %}
-            </ul>
-        {% endif %}
+
+	{% if product.newsitem_set.exists %}
+		<h2>Новости о продукте</h2>
+		<ul>
+			{% for news in product.newsitem_set.all %}
+				<li><span class="gray">{{ news.publish_date|date:"j E, Y" }}<br /></span><a href="{{ news.get_absolute_url }}">{{ news.title }}</a></li>
+			{% endfor %}
+		</ul>
+	{% endif %}
 {% endblock %}
 
 
