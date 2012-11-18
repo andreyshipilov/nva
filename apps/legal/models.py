@@ -9,9 +9,9 @@ from sorl.thumbnail import ImageField
 
 class License(models.Model):
     title = models.CharField(verbose_name=u"название лицензии", max_length=400,)
-    image = ImageField(verbose_name=u"изображение",
-                       upload_to=lambda i, f: "licenses/%s%s" % \
-                           (urandom(16).encode("hex"), splitext(f)[1].lower()),)
+    image = ImageField(upload_to=lambda i, f: "licenses/%s%s" % \
+                           (urandom(16).encode("hex"), splitext(f)[1].lower()),
+                       verbose_name=u"изображение",)
 
     class Meta:
         verbose_name = u"объект"
@@ -22,10 +22,11 @@ class License(models.Model):
 
 
 class Patent(models.Model):
-    title = models.CharField(verbose_name=u"название патента", max_length=400,)
-    image = ImageField(verbose_name=u"изображение",
-                       upload_to=lambda i, f: "patents/%s%s" % \
-                           (urandom(16).encode("hex"), splitext(f)[1].lower()),)
+    title = models.CharField(max_length=400,
+                             verbose_name=u"название патента",)
+    image = ImageField(upload_to=lambda i, f: "patents/%s%s" % \
+                           (urandom(16).encode("hex"), splitext(f)[1].lower()),
+                       verbose_name=u"изображение",)
 
     class Meta:
         verbose_name = u"объект"
