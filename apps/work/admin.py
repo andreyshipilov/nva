@@ -10,4 +10,7 @@ admin.site.register(ProductType)
 
 class ProductAdmin(AdminImageMixin, admin.ModelAdmin):
     list_display = ("title", "product_type", "is_published",)
+    formfield_overrides = {
+        models.TextField: {'widget': TinyMceWidget},
+    }
 admin.site.register(Product, ProductAdmin)

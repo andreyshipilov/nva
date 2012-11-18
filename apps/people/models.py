@@ -34,3 +34,15 @@ class Human(models.Model):
             return humans[0]
         else:
             return Human.objects.none()
+
+class Manager(models.Model):
+    full_name = models.CharField(verbose_name=u"полное имя", max_length=100,)
+    email = models.EmailField(verbose_name=u"электронная почта",)
+    
+    class Meta:
+        ordering = ("full_name",)
+        verbose_name = u"объект"
+        verbose_name_plural = u"менеджеры"
+    
+    def __unicode__(self):
+        return self.full_name

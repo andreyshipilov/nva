@@ -268,22 +268,27 @@ b {
 		margin-right: 15px;
 		background: url('/static/sprite.png') 0 -13px transparent;
 	}
-	#footer-menu ul {
+	#footer-menu {
 		float: left;
+		width: 890px;
 	}
-	#footer-menu li {
-		float: left;
-		margin-right: 25px;
-	}
-		#footer-menu p {
-			color: #777;
-			margin-top: 0.7em;
+		#footer-menu ul {
 			float: left;
-			white-space: nowrap;
 		}
-		#footer-menu a {
-			color: #777;
+		#footer-menu li {
+			float: left;
+			margin-right: 25px;
+			height: 25px;
 		}
+			#footer-menu p {
+				color: #777;
+				margin-top: 0.7em;
+				float: left;
+				white-space: nowrap;
+			}
+			#footer-menu a {
+				color: #777;
+			}
 
 /* Index */
 #index-content {

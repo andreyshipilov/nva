@@ -5,6 +5,7 @@ from os import urandom
 from django.db import models
 
 from sorl.thumbnail import ImageField
+from people.models import Manager
 
 
 class ProductType(models.Model):
@@ -36,6 +37,8 @@ class Product(models.Model):
     demo_file = models.FileField(blank=True,
                                  upload_to="product_demos",
                                  verbose_name=u"файл, демо-версия продукта",)
+    manager = models.ForeignKey(Manager,
+                                     verbose_name=u"менеджер продукта")
 
     class Meta:
         ordering = ("title",)

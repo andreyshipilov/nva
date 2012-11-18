@@ -13,5 +13,5 @@
 
 {% block main %}
 	<h1>{{ product.title|typogrify }}</h1>
-	{{ product.text }}
+	{{ product.text|safe|typogrify }}
 {% endblock %}
