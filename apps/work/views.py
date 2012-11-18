@@ -6,8 +6,8 @@ from .models import ProductType, Product
 
 
 class Index(ListView):
-    queryset = ProductType.objects.annotate(count=Count('product')).filter(count__gt=0)
+    queryset = ProductType.objects.annotate(count=Count("product")).filter(count__gt=0)
 
 class Product(DetailView):
     model = Product
-    slug_field = 'pk'
+    slug_field = "pk"

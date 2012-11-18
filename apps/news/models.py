@@ -9,22 +9,22 @@ from work.models import Product
 
 
 class NewsItem(Displayable):
-    full_text = RichTextField(verbose_name=u'текст новости')
+    full_text = RichTextField(verbose_name=u"текст новости")
     product = models.ForeignKey(Product, blank=True, null=True,
-                                verbose_name=u'продукт, с которым связана новость',)
+                                verbose_name=u"продукт, с которым связана новость",)
     project = models.ForeignKey(Project, blank=True, null=True,
-                                verbose_name=u'проект, с которым связана новость',)
+                                verbose_name=u"проект, с которым связана новость",)
 
     objects = PublishedManager()
 
     class Meta:
-        ordering = ('-publish_date',)
-        verbose_name = u'новость'
-        verbose_name_plural = u'новости'
+        ordering = ("-publish_date",)
+        verbose_name = u"новость"
+        verbose_name_plural = u"новости"
 
     def __unicode__(self):
         return self.title
 
     @models.permalink
     def get_absolute_url(self):
-        return ('news_item', (), {'pk': self.pk})
+        return ("news_item", (), {"pk": self.pk})

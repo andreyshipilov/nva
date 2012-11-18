@@ -6,7 +6,7 @@ from .models import NewsItem
 
 class Index(ListView):
     queryset = NewsItem.objects.published()
-    
+
 class Item(DetailView):
     model = NewsItem
-    slug_field = 'pk'
+    slug_field = "pk"

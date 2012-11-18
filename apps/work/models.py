@@ -54,4 +54,4 @@ class Product(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-        return ('products_item', (), {'pk': self.pk})
+        return ("products_item", (), {"pk": self.pk})

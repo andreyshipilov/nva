@@ -6,8 +6,8 @@ from .models import Review
 
 
 class ReviewAdmin(admin.ModelAdmin):
-    list_display = ('short_text', 'project', 'date',)
+    list_display = ("short_text", "project", "date",)
     formfield_overrides = {
-        models.TextField: {'widget': TinyMceWidget},
+        models.TextField: {"widget": TinyMceWidget},
     }
 admin.site.register(Review, ReviewAdmin)
