@@ -43,6 +43,8 @@ class Manager(models.Model):
     full_name = models.CharField(max_length=100,
                                  verbose_name=u"полное имя",)
     email = models.EmailField(verbose_name=u"электронная почта",)
+    phone = models.CharField(max_length=30, blank=True,
+                             verbose_name=u"телефон",)
 
     class Meta:
         ordering = ("full_name",)

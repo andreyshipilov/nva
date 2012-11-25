@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load typogrify_tags %}
+
+
+{% block meta_title %}{{ service.title }}{% endblock %}
+
+{% block left_tree_menu %}
+{% endblock %}
+
+
+{% block main %}
+	<h1>{{ service.title|typogrify }}</h1>
+	{{ service.text|safe|typogrify }}
+{% endblock %}

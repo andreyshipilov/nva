@@ -2,18 +2,21 @@
 {% load typogrify_tags %}
 
 
-{% block meta_title %}Продукты{% endblock %}
+{% block meta_title %}Услуги{% endblock %}
 
 {% block all_content %}
 	<div id="products-list">
 		{% for category in object_list %}
 			<div class="category clearfix">
 				<div class="left">
-					<h2 class="clear-top">{{ category.title|typogrify }}</h2>
+					<h2 class="clear-top">{{ category.title }}</h2>
 				</div>
 				<div class="right">
-					{% for product in category.product_set.all %}
-						<p><a href="{{ product.get_absolute_url }}">{{ product.title }}</a></p>
+					{% for service in category.service_set.all %}
+						<a href="{{ service.get_absolute_url }}">{{ service.title }}</a>
+						{% if not forloop.last %}
+							<br /><br />
+						{% endif %}
 					{% endfor %}
 				</div>	
 			</div>

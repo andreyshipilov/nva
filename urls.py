@@ -10,7 +10,8 @@ urlpatterns = patterns("",
     ("^admin/", include(admin.site.urls)),
     
     url(r"^news/", include("news.urls")),
-    url(r"^products/", include("work.urls")),
+    url(r"^products/", include("work.products_urls")),
+    url(r"^services/", include("work.services_urls")),
     url(r"^reviews/$", ReviewsIndex.as_view(), name="reviews",),
     url(r"^licenses_patents/$", LegalIndex.as_view(), name="licenses_patents",),
     

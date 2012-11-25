@@ -33,12 +33,13 @@ PATHS = (
 #     ("Users", ("auth.User", "auth.Group",)),
 # )
 ADMIN_MENU_ORDER = (
-    ("Content", ("pages.Page", ("Media Library", "fb_browse"),)),
+    ("Content", ("pages.Page", (u"Загруженные файлы", "fb_browse"),)),
     ("Site", ("sites.Site", "redirects.Redirect", "conf.Setting")),
     ("Users", ("auth.User", "auth.Group",)),
-    
-    (u"Компания", ("news.NewsItem", "reviews.Review", "people.Human",)),
-    (u"Лицензии и Патенты", ("legal.License", "legal.Patent")), 
+
+    (u"Компания", ("news.NewsItem", "reviews.Review", "people.Human", "legal.License", "legal.Patent",)),
+    (u"Продукты и Услуги", ("people.Manager", "work.Product", "work.ProductType", "work.Service", "work.ServiceType",)),
+    (u"Проекты", ("projects.Project", "projects.Client", "projects.Field",)),
 )
 
 # A three item sequence, each containing a sequence of template tags
@@ -58,11 +59,11 @@ ADMIN_MENU_ORDER = (
 # that doesn't appear in this setting, all pages will appear in it.
 
 PAGE_MENU_TEMPLATES = (
-    (1, "Top-left menu", "pages/menus/top-left.html"),
-    (2, "Top-right menu", "pages/menus/top-right.html"),
-    (3, "Top-right buttons menu", "pages/menus/top-right-buttons.html"),
-    (4, "Left tree menu", "pages/menus/left-tree.html"),
-    (5, "Footer", "pages/menus/footer.html"),
+    (1, u"Верхнее левое", "pages/menus/top-left.html"),
+    (2, u"Верхнее правое", "pages/menus/top-right.html"),
+    (3, u"Верхнее правое (кнопками)", "pages/menus/top-right-buttons.html"),
+    (4, u"Основное левое дерево", "pages/menus/left-tree.html"),
+    (5, u"Нижнее (футер)", "pages/menus/footer.html"),
 )
 
 # A sequence of fields that will be injected into Mezzanine's (or any

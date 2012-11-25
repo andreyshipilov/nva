@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load typogrify_tags %}
 
 {% block meta_title %}Новости{% endblock %}
 
@@ -8,7 +9,7 @@
 			<tr>
 				<td class="date">{{ item.publish_date|date:"j E, Y" }}</td>
 				<td>
-					<a href="{{ item.get_absolute_url }}" title="{{ item.title }}">{{ item.title }}</a>
+					<a href="{{ item.get_absolute_url }}" title="{{ item.title }}">{{ item.title|typogrify }}</a>
 				</td>
 			</tr>
 		{% endfor %}

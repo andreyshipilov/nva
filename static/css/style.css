@@ -20,10 +20,10 @@ a {
 	a:hover {
 		color: #222;
 	}
-em {
+em, i {
 	font-style: italic;
 }
-b {
+strong, b {
 	font-weight: bold;
 }
 
@@ -355,6 +355,7 @@ b {
 				-moz-border-radius: 5px;
 				-webkit-border-radius: 5px;
 				-o-border-radius: 5px;
+				display: none;
 			}
 			#projects-prev:hover,
 			#projects-next:hover {
