@@ -4,23 +4,42 @@
 
 {% block meta_title %}{{ product.title }}{% endblock %}
 
-{% block left_tree_menu %}
-	{% thumbnail product.image "x175" as im %}
-		<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ product.title }}" />
-	{% endthumbnail %}
-
-	{% if product.newsitem_set.exists %}
-		<h2>Новости о продукте</h2>
-		<ul>
-			{% for news in product.newsitem_set.all %}
-				<li><span class="gray">{{ news.publish_date|date:"j E, Y" }}<br /></span><a href="{{ news.get_absolute_url }}">{{ news.title }}</a></li>
-			{% endfor %}
-		</ul>
-	{% endif %}
-{% endblock %}
-
-
 {% block main %}
-	<h1>{{ product.title|typogrify }}</h1>
-	{{ product.text|safe|typogrify }}
+	<article>
+		<header>
+			<h1>{{ product.title|typogrify }}</h1>
+		</header>
+		{{ product.text|safe|typogrify }}
+	</article>
+
+	<div>
+		<form method="post" action=".">{% csrf_token %}
+			{{ form.as_p }}
+			<input type="submit">
+		</form>
+	</div>
+
+	<section id="product-related">
+		{% thumbnail product.image "200" format="PNG" as im %}
+			<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ product.title }}" />
+		{% endthumbnail %}
+
+		{% if product.newsitem_set.exists %}
+			<header>
+				<h2>Новости о продукте</h2>
+			</header>
+			<div id="products-related-news">
+				{% for news in product.newsitem_set.all %}
+					<article>
+						<time class="gray" datetime="{{ news.publish_date|date:"Y-m-d" }}">{{ news.publish_date|date:"j E, Y" }}</time>
+						<header>
+							<h3>
+								<a href="{{ news.get_absolute_url }}">{{ news.title }}</a>
+							</h3>
+						</header>
+					</article>
+				{% endfor %}
+			</div>
+		{% endif %}
+	</section>
 {% endblock %}

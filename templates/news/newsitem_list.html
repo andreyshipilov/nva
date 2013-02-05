@@ -4,14 +4,16 @@
 {% block meta_title %}Новости{% endblock %}
 
 {% block all_content %}
-	<table id="news-list">
+	<div id="news-list">
 		{% for item in object_list %}
-			<tr>
-				<td class="date">{{ item.publish_date|date:"j E, Y" }}</td>
-				<td>
-					<a href="{{ item.get_absolute_url }}" title="{{ item.title }}">{{ item.title|typogrify }}</a>
-				</td>
-			</tr>
+			<article>
+				<time datetime="{{ item.publish_date|date:"Y-m-d" }}" class="gray">{{ item.publish_date|date:"j E, Y" }}</time>
+				<header>
+					<h2>
+						<a href="{{ item.get_absolute_url }}" title="{{ item.title }}">{{ item.title|typogrify }}</a>
+					</h2>
+				</header>
+			</article>
 		{% endfor %}
-	</table>
+	</div>
 {% endblock %}

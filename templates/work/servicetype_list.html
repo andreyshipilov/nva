@@ -7,19 +7,20 @@
 {% block all_content %}
 	<div id="products-list">
 		{% for category in object_list %}
-			<div class="category clearfix">
-				<div class="left">
+			<article class="clearfix">
+				<header>
 					<h2 class="clear-top">{{ category.title }}</h2>
-				</div>
-				<div class="right">
+				</header>
+				<section>
 					{% for service in category.service_set.all %}
-						<a href="{{ service.get_absolute_url }}">{{ service.title }}</a>
-						{% if not forloop.last %}
-							<br /><br />
-						{% endif %}
+						<header>
+							<h3>
+								<a href="{{ service.get_absolute_url }}">{{ service.title }}</a>
+							</h3>
+						</header>
 					{% endfor %}
-				</div>	
-			</div>
+				</section>
+			</article>
 		{% empty%}
 			<p></p>
 		{% endfor %}

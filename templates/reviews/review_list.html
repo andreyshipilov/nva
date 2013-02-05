@@ -5,15 +5,17 @@
 {% block all_content %}
 	<div id="reviews-list">
 		{% for review in object_list %}
-			<div class="review clearfix">
-				<div class="review-left">
-					<p>Проект: <a href="{{ review.project.get_absolute_url }}">{{ review.project }}</a></p>
+			<section class="clearfix">
+				<div class="project">
+					<p class="gray">Проект: <a href="{{ review.project.get_absolute_url }}">{{ review.project }}</a></p>
 				</div>
-				<div class="review-right">
-					<h2 class="clear-top">{{ review.short_text }}</h2>
+				<article>
+					<header>
+						<h2 class="clear-top">{{ review.short_text }}</h2>
+					</header>
 					{{ review.text|safe }}
-				</div>
-			</div>
+				</article>
+			</section>
 		{% empty%}
 			<p>Отзывов нет. Страницу лучше скрыть...</p>
 		{% endfor %}

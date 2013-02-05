@@ -9,6 +9,10 @@
 
 
 {% block main %}
-	<h1>{{ service.title|typogrify }}</h1>
-	{{ service.text|safe|typogrify }}
+	<article>
+		<header>
+			<h1>{{ service.title|typogrify }}</h1>
+		</header>
+		{{ service.text|safe|typogrify }}
+	</article>
 {% endblock %}

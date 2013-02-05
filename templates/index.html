@@ -1,15 +1,36 @@
 {% extends "base.html" %}
-{% load typogrify_tags %}
+{% load typogrify_tags thumbnail %}
 
 {% block meta_title_separator %}{% endblock %}
 
-{% block big_content %}{% endblock %}
+{% block all_content %}{% endblock %}
 
-{% block all_content %}
+{% block big_title %}
 	<div id="index-content" class="clearfix">
-		<div id="index-gallery">
-			Here be dragons.
-		</div>
+		{% if banners %}
+			<div id="index-banners">
+				<div id="mouseSwipe">
+					{% for b in banners %}
+						<div class="panel" id="banner_{{ b.pk }}">
+							<div class="panel-left">
+								<h1>{{ b|safe }}</h1>
+							</div>
+							<div class="panel-right">
+								{% thumbnail b.get_image "275x200" format="PNG" upscale=False as img %}
+									<img src="{{ img.url }}" width="{{ img.width }}" height="{{ img.height }}" alt="{{ b }}" />
+								{% endthumbnail %}
+								<h2>{{ b.medium_title|safe }}</h2>
+								<p>{{ b.small_text|safe }}</p>
+
+								{% if b.get_file %}
+									<a href="{{ b.get_file.name }}" class="download">Скачать</a>
+								{% endif %}
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		{% endif %}
 
 		{% if news %}
 			<div id="index-news">
@@ -21,7 +42,7 @@
 							<td>
 								<a href="{{ item.get_absolute_url }}" title="{{ item.title }}">{{ item.title|typogrify }}</a>
 								<br />
-								<span>{{ item.publish_date|date:"j E, Y" }}</span>
+								<span class="gray">{{ item.publish_date|date:"j E, Y" }}</span>
 							</td>
 						</tr>
 					{% endfor %}
@@ -41,7 +62,7 @@
 						<p class="project-image">
 							<img src="{{ projects.0.client.image.url }}" alt="{{ projects.0.title }}" />
 						</p>
-						<p class="client-title">{{ projects.0.client.title }}</p>
+						<p class="client-title gray">{{ projects.0.client.title }}</p>
 						<p class="project-title">
 							<a href="{{ projects.0.get_absolute_url }}">{{ projects.0.title }}</a>
 						</p>
@@ -51,7 +72,7 @@
 						<p class="project-image">
 							<img src="{{ projects.1.client.image.url }}" alt="{{ projects.1.title }}" />
 						</p>
-						<p class="client-title">{{ projects.1.client.title }}</p>
+						<p class="client-title gray">{{ projects.1.client.title }}</p>
 						<p class="project-title">
 							<a href="{{ projects.1.get_absolute_url }}">{{ projects.1.title }}</a>
 						</p>
@@ -62,4 +83,45 @@
 		{% endif %}
 
 	</div>
+{% endblock %}
+
+{% block extra_css %}
+	{{ block.super }}
+	{% if banners|length < 2 %}
+		#mouseSwipe {
+			cursor: default !important;
+		}
+	{% endif %}
+	{% for b in banners %}
+		{% thumbnail b.bg_image "950x500" as im %}
+			#banner_{{ b.pk }} {
+				background: url("{{ im.url }}") 50% 0;
+			}
+		{% endthumbnail %}
+	{% endfor %}
+{% endblock %}
+
+{% block extra_js %}
+	{% if banners|length > 1 %}
+		$(function () {
+			$(document).bind("dragstart", function() {
+				return false;
+			});
+			$(window).bind("resize", function() {
+				if ($(window).width() < 1000) {
+					$("#index-banners .panel").width($(window).width());
+				} else {
+					$("#index-banners .panel").width(950);
+				}
+				$(".navLeft, .navRight").remove();
+				$('#mouseSwipe').swipe({
+					TYPE: 'panelSwipe',
+					HORIZ: true,
+					DURATION: 1000,
+					ARROWS: true
+				});
+			});
+			$(window).resize();
+		});
+	{% endif %}
 {% endblock %}

@@ -293,12 +293,14 @@ INSTALLED_APPS = (
 
     "typogrify",
     "sorl.thumbnail",
+
     "news",
     "people",
     "projects",
     "reviews",
     "legal",
     "work",
+    "banners",
 )
 
 # List of processors used by RequestContext to populate the context.

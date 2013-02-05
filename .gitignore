@@ -5,4 +5,7 @@
 .coverage
 local_settings.py
 static/media
-*migrations*
+static/admin
+static/filebrowser
+static/grappelli
+static/mezzanine

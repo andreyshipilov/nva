@@ -7,16 +7,20 @@
 {% block all_content %}
 	<div id="products-list">
 		{% for category in object_list %}
-			<div class="category clearfix">
-				<div class="left">
+			<article class="clearfix">
+				<header>
 					<h2 class="clear-top">{{ category.title|typogrify }}</h2>
-				</div>
-				<div class="right">
+				</header>
+				<section>
 					{% for product in category.product_set.all %}
-						<p><a href="{{ product.get_absolute_url }}">{{ product.title }}</a></p>
+						<header>
+							<h3>
+								<a href="{{ product.get_absolute_url }}">{{ product.title }}</a>
+							</h3>
+						</header>
 					{% endfor %}
-				</div>	
-			</div>
+				</section>
+			</article>
 		{% empty%}
 			<p></p>
 		{% endfor %}

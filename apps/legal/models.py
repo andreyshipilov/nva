@@ -8,7 +8,8 @@ from sorl.thumbnail import ImageField
 
 
 class License(models.Model):
-    title = models.CharField(verbose_name=u"название лицензии", max_length=400,)
+    title = models.CharField(max_length=400,
+                             verbose_name=u"название лицензии",)
     image = ImageField(upload_to=lambda i, f: "licenses/%s%s" % \
                            (urandom(16).encode("hex"), splitext(f)[1].lower()),
                        verbose_name=u"изображение",)

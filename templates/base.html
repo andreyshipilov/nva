@@ -5,12 +5,26 @@
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="keywords" content="{% block meta_keywords %}{% endblock %}" />
 		<meta name="description" content="{% block meta_description %}{% endblock %}" />
+		<meta name="viewport" content="width=525; initial-scale=0.5; maximum-scale=1.0;"/>
 		<link rel="shortcut icon" href="{{ STATIC_URL }}favicon.ico" />
 		<link rel="apple-touch-icon" href="{{ STATIC_URL }}apple-touch-icon.png" />
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+		{% compress js %}
+			<script src="{{ STATIC_URL }}js/jquery.mouseSwipe.1.0.2.js" type="text/javascript"></script>
+			<script type="text/javascript">
+				{% block extra_js %}{% endblock %}
+			</script>
+		{% endcompress %}
 
 		{% compress css %}
 			<link rel="stylesheet" href="{{ STATIC_URL }}css/reset.css" />
 			<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" />
+			<link rel="stylesheet" href="{{ STATIC_URL }}css/queries.css" />
+			<style type="text/css">
+				{% block extra_css %}{% endblock %}
+			</style>
 		{% endcompress %}
 
 		<!--[if lt IE 9]>
@@ -25,20 +39,20 @@
 				</a>
 				<div id="top-menu">
 					<div id="top-phone"><b>+7 492 229-03-56</b></div>
-					{% page_menu "pages/menus/top-right.html" %}
+					<nav>{% page_menu "pages/menus/top-right.html" %}</nav>
 				</div>
 			</div>
 			<div id="menu" class="clearfix">
 				<div id="menu-main">
-					{% page_menu "pages/menus/top-left.html" %}
+					<nav>{% page_menu "pages/menus/top-left.html" %}</nav>
 				</div>
 				<div id="menu-buttons">
-					{% page_menu "pages/menus/top-right-buttons.html" %}
+					<nav>{% page_menu "pages/menus/top-right-buttons.html" %}</nav>
 				</div>
 			</div>
 
 			{% block big_title %}
-				<div id="big-title">
+				<header id="big-title">
 					{% for page in page_branch %}
 						{% if page.is_primary and page.is_current_or_ascendant %}
 							{% if request.path == page.get_absolute_url %}
@@ -48,14 +62,14 @@
 							{% endif %}
 						{% endif %}
 					{% endfor %}
-				</div>
+				</header>
 			{% endblock %}
 
 			<div id="content" class="clearfix">
 				{% block all_content %}
 					<div id="content-tree">
 						{% block left_tree_menu %}
-							{% page_menu "pages/menus/left-tree.html" %}
+							<nav>{% page_menu "pages/menus/left-tree.html" %}</nav>
 						{% endblock %}
 						<br />
 					</div>
@@ -84,13 +98,13 @@
 				</div>
 			{% endif %}
 
-			<div id="footer" class="clearfix">
+			<footer class="clearfix">
 				<div id="footer-logo"></div>
 				<div id="footer-menu" class="clearfix">
-					{% page_menu "pages/menus/footer.html" %}
+					<nav>{% page_menu "pages/menus/footer.html" %}</nav>
 					<p>&copy; {{ settings.SITE_TITLE }}, {% now "Y" %}. Все права защищены.</p>
 				</div>
-			</div>
+			</footer>
 		</div>
 	</body>
 </html>{% endspaceless %}

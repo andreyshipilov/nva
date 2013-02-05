@@ -1,0 +1,188 @@
+@media screen and (max-width:1000px) {
+	html {
+		min-width: 525px;
+	}
+	body {
+		padding-top: 15px;
+	}
+	#page {width: 100%; padding: 0;}
+	#top {
+		margin: 0 0 30px 15px;
+	}
+		#top-phone {
+			margin-right: 15px;
+		}
+		#top-menu li {
+			margin-right: 15px;
+			margin-left: 0;
+		}
+	#menu-main-home {
+		margin-left: 15px;
+	}
+	#menu-buttons ul li {
+		margin-left: 0;
+		margin-right: 15px;
+	}
+	#content {
+		margin: 0 15px;
+	}
+		#content-tree {
+			display: none;
+		}
+		#content-main {
+			width: 100%;
+		}
+		#content p {
+			margin-bottom: 15px;
+		}
+	#big-title {
+		margin: 15px 0;
+		border-radius: 0;
+	}
+		#big-title h1 {
+			margin: 0 15px;
+		}
+	#people {
+		position: relative;
+		margin: 60px 0 15px 0;
+		background-color: #ddd;
+		border-radius: 0;
+		-moz-border-radius: 0;
+		-webkit-border-radius: 0;
+		-o-border-radius: 0;
+	}
+		#people-talk {
+			width: auto;
+			margin-left: 150px;
+			margin-right: 15px;
+		}
+	footer {
+		margin: 30px 0 15px 15px;
+	}
+		#footer-menu {
+			width: auto;
+		}
+			#footer-menu ul {
+				display: none;
+			}
+
+	/* Index */
+	#index-content {
+		margin: 15px 0;
+	}
+	#index-news {
+		width: auto;
+		margin: 0 15px;
+	}
+	#index-projects {
+		display: none;
+	}
+	#index-banners {
+		width: 100%;
+		height: 350px;
+		border-radius: 0;
+		margin-bottom: 15px;
+	}
+		#mouseSwipe {
+			height: 350px;
+		}
+			#mouseSwipe .panel {
+				width: auto;
+				height: 350px;
+				border-radius: 0;
+				background-position: 50% 50%;
+			}
+				#mouseSwipe .panel .panel-left {
+					width: 100%;
+					margin: 30px 0 0 15px;
+				}
+					#mouseSwipe .panel .panel-left h1 {
+						font-size: 3em;
+					}
+				#mouseSwipe .panel .panel-right {
+					float: left;
+					width: 100%;
+					margin: 15px 15px 0 15px;
+				}
+					#mouseSwipe .panel .panel-right img {
+						float: left;
+						margin: 0 15px 15px 0;
+					}
+	/* Licenses and patents */
+	#licenses-list .title,
+	#patents-list .title {
+		width: auto;
+		margin: 0;
+	}
+	#licenses-list .items,
+	#patents-list .items {
+		width: auto;
+		margin-right: 0;
+		margin-bottom: 15px;
+	}
+
+	/* News */
+	#news-list time {
+		width: 100%;
+		white-space: nowrap;
+		text-align: left;
+		padding: 0;
+	}
+	#news-list header {
+		width: auto;
+		margin-bottom: 15px;
+	}
+	#news-item header {
+		margin: 0;
+	}
+	#news-item time {
+		width: auto;
+		float: none;
+		color: #999;
+		padding: 0 0 15px;
+		display: block;
+	}
+	#news-text {
+		float: none;
+		width: auto;
+		margin-right: 0;
+	}
+
+	/* Products */
+	#products-list header {
+		margin: 0 15px 0 0;
+		width: auto;
+		float: none;
+	}
+	#products-list section {
+		width: auto;
+		margin-right: 0;
+		margin-bottom: 15px;
+	}
+		#products-list section header {
+			margin-bottom: 15px;
+		}
+	#product-related {
+		position: relative;
+		margin: 0;
+		width: auto;
+	}
+		#product-related-news {
+		}
+
+	/* Reviews */
+	#reviews-list section {
+		margin-bottom: 15px;
+	}
+		#reviews-list .project {
+			width: auto;
+			margin: 0 15px 0 0;
+		}
+			#reviews-list .project p {
+				margin: 0 0 7.5px;
+			}
+		#reviews-list article {
+			width: auto;
+			margin-right: 15px;
+		}
+}
