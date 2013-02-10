@@ -293,6 +293,7 @@ INSTALLED_APPS = (
 
     "typogrify",
     "sorl.thumbnail",
+    "supercaptcha",
 
     "news",
     "people",
@@ -360,6 +361,19 @@ OPTIONAL_APPS = (
 )
 
 DEBUG_TOOLBAR_CONFIG = {"INTERCEPT_REDIRECTS": False}
+
+CAPTCHA_SYMBOLS = u'123456789'
+CAPTCHA_LENGTH = 3
+CAPTCHA_SIZE = (100, 50)
+CAPTCHA_FOREGROUND_COLORS = ((150, 150, 150),)
+CAPTCHA_BACKGROUND_COLOR = (255, 255, 255)
+CAPTCHA_DEFAULT_ERROR_MESSAGE = u'Вы ввели неправильные символы'
+CAPTCHA_HTML_TEMPLATE = """
+<div>
+<img src="%(src)s?%(rnd)s" alt="%(alt)s" width="%(width)s" height="%(height)s" />
+</div>
+<input%(input_attrs)s maxlength="%(length)s" />
+"""
 
 ###################
 # DEPLOY SETTINGS #

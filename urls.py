@@ -8,6 +8,7 @@ from legal.views import Index as LegalIndex
 admin.autodiscover()
 urlpatterns = patterns("",
     ("^admin/", include(admin.site.urls)),
+    url(r'^captcha/(?P<code>[\da-f]{32})/$', 'supercaptcha.draw'),
     
     url(r"^news/", include("news.urls")),
     url(r"^products/", include("work.products_urls")),

@@ -37,6 +37,11 @@ strong, b {
 .gray {
 	color: #999;
 }
+::selection,
+::-moz-selection {
+	background-color: #de2c62;
+	color: #fff;
+}
 
 /* Project CSS */
 #page {
@@ -616,3 +621,38 @@ footer {
 		#products-related-news h3 {
 			margin-bottom: 12.5px;
 		}
+#work-form {
+	margin: 0 !important;
+}
+	#work-form li {
+		list-style-type: none;
+		margin-bottom: 1em !important;
+	}
+		#work-form ul {
+			margin: 0;
+		}
+			#work-form label {
+				display: block;
+				color: #555;
+			}
+			#work-form textarea,
+			#work-form input {
+				width: 75%;
+				border: 2px solid #ddd;
+				padding: 3px;
+				font: normal 1em/1.3em Calibri, Arial, sans-serif;
+			}
+			#work-form .errorlist {
+				color: #de2c62;
+				font-size: 0.8em;
+				font-style: italic;
+			}
+				#work-form .errorlist li {
+					margin: 0 !important;
+				}
+			#work-form-submit {
+				margin: 0
+			}
+#captcha {
+	width: 100px !important;
+}

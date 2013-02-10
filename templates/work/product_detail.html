@@ -1,10 +1,17 @@
 {% extends "base.html" %}
-{% load typogrify_tags thumbnail %}
+{% load typogrify_tags thumbnail pages_tags %}
 
 
 {% block meta_title %}{{ product.title }}{% endblock %}
 
 {% block main %}
+	{% if form_is_ok %}
+		<header>
+			<h2>Спасибо</h2>
+		</header>
+		<p>Мы отправили ваш вопрос нашему менеджеру, он свяжется с вами в ближайшее время.</p>
+	{% endif %}
+
 	<article>
 		<header>
 			<h1>{{ product.title|typogrify }}</h1>
@@ -13,10 +20,17 @@
 	</article>
 
 	<div>
-		<form method="post" action=".">{% csrf_token %}
-			{{ form.as_p }}
-			<input type="submit">
-		</form>
+		{% if not form_is_ok %}
+			<header>
+				<h2>Задать вопрос</h2>
+			</header>
+			<form method="post" action=".">{% csrf_token %}
+				<ul id="work-form">
+					{{ contact_form.as_ul }}
+				</ul>
+				<input type="submit" value="Отправить" id="work-form-submit" />
+			</form>
+		{% endif %}
 	</div>
 
 	<section id="product-related">
