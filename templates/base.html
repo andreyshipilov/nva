@@ -13,6 +13,8 @@
 
 		{% compress js %}
 			<script src="{{ STATIC_URL }}js/jquery.mouseSwipe.1.0.2.js" type="text/javascript"></script>
+			<script src="{{ STATIC_URL }}fancybox/jquery.fancybox.js" type="text/javascript"></script>
+			<script src="{{ STATIC_URL }}fancybox/helpers/jquery.fancybox-buttons.js" type="text/javascript"></script>
 			<script type="text/javascript">
 				{% block extra_js %}{% endblock %}
 			</script>
@@ -22,13 +24,15 @@
 			<link rel="stylesheet" href="{{ STATIC_URL }}css/reset.css" />
 			<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" />
 			<link rel="stylesheet" href="{{ STATIC_URL }}css/queries.css" />
+			<link rel="stylesheet" href="{{ STATIC_URL }}fancybox/jquery.fancybox.css" />
+			<link rel="stylesheet" href="{{ STATIC_URL }}fancybox/helpers/jquery.fancybox-buttons.css" />
 			<style type="text/css">
 				{% block extra_css %}{% endblock %}
 			</style>
 		{% endcompress %}
 
 		<!--[if lt IE 9]>
-			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 	</head>
 	<body>

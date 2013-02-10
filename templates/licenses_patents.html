@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load thumbnail %}
 
+
 {% block meta_title %}Лицензии и патенты{% endblock %}
 
 {% block all_content %}
@@ -11,7 +12,7 @@
 		<div class="items">
 			{% for i in licenses %}
 				{% thumbnail i.image "x200" as im %}
-					<a href="{{ i.image.url }}">
+					<a href="{{ i.image.url }}" rel="group-1" title="{{ i.title }}">
 						<div class="description">{{ i.title }}</div>
 						<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ i.title }}" />
 					</a>
@@ -19,7 +20,7 @@
 			{% endfor %}
 		</div>
 	</div>
-	
+
 	<div id="patents-list" class="clearfix">
 		<div class="title">
 			<h2 class="clear-top">Патенты</h2>
@@ -27,7 +28,7 @@
 		<div class="items">
 			{% for i in patents %}
 				{% thumbnail i.image "200x200" as im %}
-					<a href="{{ i.image.url }}">
+					<a href="{{ i.image.url }}" rel="group-2">
 						<div class="description">{{ i.title }}</div>
 						<img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ i.title }}" />
 					</a>
@@ -35,4 +36,10 @@
 			{% endfor %}
 		</div>
 	</div>
+{% endblock %}
+
+{% block extra_js %}
+	$(function(){
+		$(".items a").fancybox();
+	});
 {% endblock %}
