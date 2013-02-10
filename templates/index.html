@@ -19,11 +19,12 @@
 								{% thumbnail b.get_image "275x200" format="PNG" upscale=False as img %}
 									<img src="{{ img.url }}" width="{{ img.width }}" height="{{ img.height }}" alt="{{ b }}" />
 								{% endthumbnail %}
+
 								<h2>{{ b.medium_title|safe }}</h2>
 								<p>{{ b.small_text|safe }}</p>
 
 								{% if b.get_file %}
-									<a href="{{ b.get_file.name }}" class="download">Скачать</a>
+									<a href="{{ b.get_file.url }}" class="download">Скачать</a>
 								{% endif %}
 							</div>
 						</div>

@@ -1,5 +1,4 @@
-;
-(function($) {
+;(function($) {
     $.fn.swipe = function(f) {
         var g = {
             DECAY: 0.9,
@@ -300,4 +299,4 @@
             setTimeout(A, o.AUTOSTART)
         }
     }
-})(jQuery)
+})(jQuery);
