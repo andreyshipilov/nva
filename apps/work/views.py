@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from django.core.mail import send_mail
+from django.conf import settings
+from django.core.mail import send_mail, mail_admins
 from django.db.models import Count
 from django.shortcuts import get_object_or_404
 from django.template import loader, Context
@@ -35,8 +36,14 @@ def product(request, pk):
                 "form": contact_form,
                 "obj": product,
             })
-            send_mail("Получен новый вопрос", template.render(email_context),
-                      "from@example.com", [product.manager.email], fail_silently=True)
+
+            if product.manager:
+                send_mail("Получен новый вопрос", template.render(email_context),
+                          "from@example.com", [product.manager.email],
+                          fail_silently=True)
+            else:
+                mail_admins("Получен новый вопрос", template.render(email_context),
+                            fail_silently=True,)
             form_is_ok = True
     else:
         contact_form = ContactForm()
@@ -72,8 +79,14 @@ def service(request, pk):
                 "form": contact_form,
                 "obj": service,
             })
-            send_mail("Получен новый вопрос", template.render(email_context),
-                      "from@example.com", [service.manager.email], fail_silently=True)
+
+            if service.manager:
+                send_mail("Получен новый вопрос", template.render(email_context),
+                          "from@example.com", [service.manager.email],
+                          fail_silently=True)
+            else:
+                mail_admins("Получен новый вопрос", template.render(email_context),
+                            fail_silently=True,)
             form_is_ok = True
     else:
         contact_form = ContactForm()
