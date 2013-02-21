@@ -3,7 +3,7 @@ from os.path import splitext
 from os import urandom
 
 from django.db import models
-
+from mezzanine.pages.models import Page
 from sorl.thumbnail import ImageField
 
 
@@ -21,6 +21,10 @@ class Human(models.Model):
                        blank=True,
                        verbose_name=u"изображение",
                        help_text=u"PNG файл с прозрачным фоном.",)
+    page = models.ForeignKey(Page, blank=True, null=True,
+                             verbose_name=u"страница, на которой показывать",)
+    show_on_index = models.BooleanField(default=False,
+                                       verbose_name=u"показывать ли на главной",)
 
     class Meta:
         ordering = ("full_name",)
@@ -34,6 +38,14 @@ class Human(models.Model):
     def get_random():
         humans = Human.objects.order_by("?")
 
+        if humans.exists():
+            return humans[0]
+        else:
+            return Human.objects.none()
+
+    @staticmethod
+    def get_one_for_index():
+        humans = Human.objects.filter(show_on_index=True).order_by("?")
         if humans.exists():
             return humans[0]
         else:
