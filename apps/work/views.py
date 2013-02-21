@@ -36,7 +36,7 @@ def product(request, pk):
                 "obj": product,
             })
             send_mail("Получен новый вопрос", template.render(email_context),
-                      "from@example.com", ["to@example.com"], fail_silently=True)
+                      "from@example.com", [product.manager.email], fail_silently=True)
             form_is_ok = True
     else:
         contact_form = ContactForm()
@@ -73,7 +73,7 @@ def service(request, pk):
                 "obj": service,
             })
             send_mail("Получен новый вопрос", template.render(email_context),
-                      "from@example.com", ["to@example.com"], fail_silently=True)
+                      "from@example.com", [service.manager.email], fail_silently=True)
             form_is_ok = True
     else:
         contact_form = ContactForm()
