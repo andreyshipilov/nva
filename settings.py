@@ -33,7 +33,7 @@ PATHS = (
 #     ("Users", ("auth.User", "auth.Group",)),
 # )
 ADMIN_MENU_ORDER = (
-    ("Content", ("pages.Page", (u"Загруженные файлы", "fb_browse"),)),
+    ("Content", ("pages.Page", (u"Загруженные файлы", "fb_browse"), "banners.Banner",)),
     ("Site", ("sites.Site", "redirects.Redirect", "conf.Setting")),
     ("Users", ("auth.User", "auth.Group",)),
 
