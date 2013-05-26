@@ -3,8 +3,8 @@ from os.path import splitext
 from os import urandom
 
 from django.db import models
-
 from sorl.thumbnail import ImageField
+
 from people.models import Manager
 
 

@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from os.path import splitext
+from os import urandom
 
 ######################
 # MEZZANINE SETTINGS #
@@ -34,25 +36,19 @@ PAGE_MENU_TEMPLATES = (
 # field instance. When specifying the field class, the path
 # ``django.models.db.`` can be omitted for regular Django model fields.
 #
- #EXTRA_MODEL_FIELDS = (
- #    (
- #        # Dotted path to field.
- #        "mezzanine.blog.models.BlogPost.image",
- #        # Dotted path to field class.
- #        "somelib.fields.ImageField",
- #        # Positional args for field class.
- #        ("Image",),
- #        # Keyword args for field class.
- #        {"blank": True, "upload_to": "blog"},
- #    ),
- #    # Example of adding a field to *all* of Mezzanine's content types:
- #    (
- #        "mezzanine.pages.models.Page.another_field",
- #        "IntegerField", # 'django.db.models.' is implied if path is omitted.
- #        ("Another name",),
- #        {"blank": True, "default": 1},
- #    ),
- #)
+EXTRA_MODEL_FIELDS = (
+    (
+        "mezzanine.pages.models.Page.image",
+        "ImageField",
+        ("Background Image",),
+        {
+            "blank": True,
+            "upload_to": lambda i, f: 'title_backgrounds/%s%s' % \
+                (urandom(16).encode('hex'), splitext(f)[1].lower()),
+            #"verbose_name": u"фоновое изображение для заголовка",
+         },
+    ),
+)
 
 USE_SOUTH = True
 

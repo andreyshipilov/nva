@@ -1,8 +1,8 @@
 from django.contrib import admin
 from django.db import models
-
 from mezzanine.core.forms import TinyMceWidget
 from sorl.thumbnail.admin import AdminImageMixin
+
 from .models import ProductType, Product, ServiceType, Service
 
 

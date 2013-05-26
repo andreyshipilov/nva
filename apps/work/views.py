@@ -5,7 +5,6 @@ from django.db.models import Count
 from django.shortcuts import get_object_or_404
 from django.template import loader, Context
 from django.views.generic import ListView
-
 from mezzanine.utils.views import render
 
 from .models import ProductType, Product, ServiceType, Service

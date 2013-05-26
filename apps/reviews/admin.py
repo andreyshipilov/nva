@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.db import models
-
 from mezzanine.core.forms import TinyMceWidget
+
 from .models import Review
 
 

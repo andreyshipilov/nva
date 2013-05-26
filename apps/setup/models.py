@@ -3,7 +3,6 @@ from os.path import splitext
 from os import urandom
 
 from django.db import models
-
 from sorl.thumbnail import ImageField
 
 
@@ -15,12 +14,12 @@ class Setup(models.Model):
     copyright = models.CharField(max_length=200, blank=True,
                                  verbose_name=u'текст после копирайта')
     phone = models.CharField(max_length=20, verbose_name=u'телефон')
-    main_logo = ImageField(blank=True, upload_to=lambda i, f: "logos/%s%s" %
-                      (urandom(16).encode("hex"), splitext(f)[1].lower()),
-                      verbose_name=u"большой логотип в шапке",)
-    small_logo = ImageField(blank=True, upload_to=lambda i, f: "logos/%s%s" %
-                      (urandom(16).encode("hex"), splitext(f)[1].lower()),
-                      verbose_name=u"маленький логотип в колонтитуле",)
+    main_logo = ImageField(blank=True, upload_to=lambda i, f: 'logos/%s%s' %
+                      (urandom(16).encode('hex'), splitext(f)[1].lower()),
+                      verbose_name=u'большой логотип в шапке (200 на 60)',)
+    small_logo = ImageField(blank=True, upload_to=lambda i, f: 'logos/%s%s' %
+                      (urandom(16).encode('hex'), splitext(f)[1].lower()),
+                      verbose_name=u'маленький логотип в колонтитуле (45 на 45)',)
 
     class Meta:
         verbose_name = u'настройки сайта'

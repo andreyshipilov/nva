@@ -322,16 +322,15 @@ footer {
 		-webkit-border-radius: 5px;
 		-o-border-radius: 5px;
 	}
-		.swipe-wrap {
+		#index-banners .swipe-wrap {
 			-webkit-user-select: none;
 			-moz-user-select: none;
 			position: relative;
 			width: 950px;
 			height: 490px;
 			margin: 0;
-			cursor: move;
 		}
-			.swipe-wrap .panel {
+			#index-banners .swipe-wrap .panel {
 				color: #fff;
 				margin: 0;
 				padding: 0;
@@ -342,30 +341,30 @@ footer {
 				-webkit-border-radius: 5px;
 				-o-border-radius: 5px;
 			}
-				.swipe-wrap .panel .panel-left {
+				#index-banners .swipe-wrap .panel .panel-left {
 					float: left;
 					width: 575px;
 					margin: 50px 0 0 50px;
 				}
-					.swipe-wrap .panel .panel-left h1 {
+					#index-banners .swipe-wrap .panel .panel-left h1 {
 						color: #fff;
 						font: bold 5em/1em Calibri, ArialRoundedMTBold, sans-serif;
 						margin: 0;
 					}
-				.swipe-wrap .panel .panel-right {
+				#index-banners .swipe-wrap .panel .panel-right {
 					float: right;
 					width: 275px;
 					margin: 50px 50px 0 0;
 				}
-					.swipe-wrap .panel .panel-right h2 {
+					#index-banners .swipe-wrap .panel .panel-right h2 {
 						color: #fff;
 						font-size: 1.6em;
 						line-height: 1em;
 					}
-					.swipe-wrap .panel .panel-right p {
+					#index-banners .swipe-wrap .panel .panel-right p {
 						margin: 25px 0;
 					}
-					.swipe-wrap .panel .panel-right a.download {
+					#index-banners .swipe-wrap .panel .panel-right a.download {
 						color: #fff;
 						text-shadow: 0 -1px 0 #000;
 						float: left;
@@ -402,7 +401,7 @@ footer {
 				background-image: url('/static/banner-arrow-right.png');
 			}
 	#index-news {
-		width: 275px;
+		width: 440px;
 		margin: 0 25px;
 		float: left;
 	}
@@ -418,7 +417,7 @@ footer {
 			font-size: 1.4em;
 		}
 	#index-projects {
-		width: 623px; /* 625px - 2px border*/
+		width: 458px;
 		float: left;
 		border: 1px solid #bbb;
 		border-radius: 5px;
@@ -429,6 +428,7 @@ footer {
 		#index-project-top {
 			margin: 12.5px;
 			text-align: center;
+			display: none;
 		}
 			#projects-prev,
 			#projects-next {
@@ -444,7 +444,6 @@ footer {
 				-moz-border-radius: 5px;
 				-webkit-border-radius: 5px;
 				-o-border-radius: 5px;
-				display: none;
 			}
 			#projects-prev:hover,
 			#projects-next:hover {
@@ -462,31 +461,33 @@ footer {
 				font-size: 1.4em;
 			}
 		#index-project-content {
-			margin: 12.5px;
+			margin: 12.5px 0;
 		}
-			#index-project-content-left,
-			#index-project-content-right {
-				width: 30%;
-				margin: 0 10%;
+			#index-project-content .project {
+				/*width: 30%;
+				padding: 0 30px;*/
 				text-align: center;
 				float: left;
 			}
 			#index-project-content p {
 				margin: 12.5px 0;
 			}
-			#index-project-content .client-title {
+			#index-project-content .project .client-title {
 			}
-			#index-project-content .project-title {
+			#index-project-content .project .project-title {
 				color: #000;
 				font-size: 1.3em;
 				line-height: 1.3em;
 			}
-			#index-project-content .project-description {
+			#index-project-content .project .project-description {
 				color: #4498e0;
 				font: italic 0.9em Georgia, serif;
 			}
-			#index-project-content .project-image {
+			#index-project-content .project .project-image {
 				margin-bottom: 0;
+			}
+			#index-project-content .panel-wrap {
+				padding: 0 30px;
 			}
 
 /* News */

@@ -54,33 +54,27 @@
 		{% endif %}
 
 		{% if projects %}
-			<div id="index-projects">
-				<div id="index-project-top" class="clearfix">
-					<a href="#" id="projects-prev">&larr;</a>
-					<a href="/projects/" id="projects-link">Проекты</a>
-					<a href="#" id="projects-next">&rarr;</a>
-				</div>
-				<div id="index-project-content" class="clearfix">
-					<div id="index-project-content-left">
-						<p class="project-image">
-							<img src="{{ projects.0.client.image.url }}" alt="{{ projects.0.title }}" />
-						</p>
-						<p class="client-title gray">{{ projects.0.client.title }}</p>
-						<p class="project-title">
-							<a href="{{ projects.0.get_absolute_url }}">{{ projects.0.title }}</a>
-						</p>
-						<p class="project-description">{{ projects.0.description }}</p>
-					</div>
-					<div id="index-project-content-right">
-						<p class="project-image">
-							<img src="{{ projects.1.client.image.url }}" alt="{{ projects.1.title }}" />
-						</p>
-						<p class="client-title gray">{{ projects.1.client.title }}</p>
-						<p class="project-title">
-							<a href="{{ projects.1.get_absolute_url }}">{{ projects.1.title }}</a>
-						</p>
-						<p class="project-description">{{ projects.1.description }}</p>
-					</div>
+			<div id="index-project-top" class="clearfix">
+				<a href="#" id="projects-prev">&larr;</a>
+				<a href="/projects/" id="projects-link">Проекты</a>
+				<a href="#" id="projects-next">&rarr;</a>
+			</div>
+			<div id="index-projects" class="swipe">
+				<div id="index-project-content" class="clearfix swipe-wrap">
+					{% for project in projects %}
+						<div class="project panel">
+							<div class="panel-wrap">
+								<p class="project-image">
+									<img src="{{ project.client.image.url }}" alt="{{ project.title }}" />
+								</p>
+								<p class="client-title gray">{{ project.client.title }}</p>
+								<p class="project-title">
+									<a href="{{ project.get_absolute_url }}">{{ project.title }}</a>
+								</p>
+								<p class="project-description">{{ project.description }}</p>
+							</div>
+						</div>
+					{% endfor %}
 				</div>
 			</div>
 		{% endif %}
@@ -113,21 +107,17 @@
 		position: relative;
 	}
 	.swipe-wrap > div.panel {
-		float:left;
-		width:100%;
+		float: left;
+		width: 100%;
 		position: relative;
 	}
 {% endblock %}
 
 {% block extra_js %}
 	{% if banners|length > 1 %}
-		var mySwipe;
-
 		$(function () {
-			window.mySwipe = new Swipe(document.getElementById('index-banners'), {
-				startSlide: 2,
-				speed: 400,
-				auto: 3000,
+			window.bannersSwipe = new Swipe(document.getElementById('index-banners'), {
+				auto: 5000,
 				continuous: true,
 				disableScroll: false,
 				stopPropagation: false,
@@ -135,11 +125,28 @@
 				transitionEnd: function(index, elem) {}
 			});
 			$('#index-banners-prev').appendTo($('#index-banners')).on('click', function(){
-				window.mySwipe.prev();
+				window.bannersSwipe.prev();
 			});
 			$('#index-banners-next').appendTo($('#index-banners')).on('click', function(){
-				window.mySwipe.next();
+				window.bannersSwipe.next();
 			});
+
+			window.projectsSwipe = new Swipe(document.getElementById('index-projects'), {
+				continuous: true,
+				disableScroll: false,
+				stopPropagation: false,
+				callback: function(index, elem) {},
+				transitionEnd: function(index, elem) {}
+			});
+			$('#projects-prev').on('click', function(){
+				window.projectsSwipe.prev();
+				return false;
+			});
+			$('#projects-next').on('click', function(){
+				window.projectsSwipe.next();
+				return false;
+			});
+			$('#index-project-top').prependTo($('#index-projects')).show();
 		});
 	{% endif %}
 {% endblock %}
