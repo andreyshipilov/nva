@@ -14,14 +14,16 @@ class Human(models.Model):
                              verbose_name=u"цитата",)
     position = models.CharField(max_length=100,
                                 verbose_name=u"должность",)
-    email = models.EmailField(blank=True,
-                              verbose_name=u"электронная почта",)
+    link = models.EmailField(blank=True,
+                              verbose_name=u"ссылка",)
+    link_text = models.EmailField(blank=True,
+                              verbose_name=u"текст для ссылки",)
     image = ImageField(upload_to=lambda i, f: "human_banners/%s%s" % \
                            (urandom(16).encode("hex"), splitext(f)[1].lower()),
                        blank=True,
                        verbose_name=u"изображение",
                        help_text=u"PNG файл с прозрачным фоном.",)
-    page = models.ForeignKey(Page, blank=True, null=True,
+    page = models.ManyToManyField(Page, blank=True, null=True,
                              verbose_name=u"страница, на которой показывать",)
     show_on_index = models.BooleanField(default=False,
                                        verbose_name=u"показывать ли на главной",)

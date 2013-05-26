@@ -13,7 +13,7 @@ class Review(models.Model):
                                   verbose_name=u"краткое описание",)
     text = models.TextField(verbose_name=u"текст отзыва",)
     project = models.ForeignKey(Project,
-                                help_text=u"Проект, с которым связан отзыв.",)
+                                verbose_name=u"проект, с которым связан отзыв",)
 
     class Meta:
         ordering = ("-date",)

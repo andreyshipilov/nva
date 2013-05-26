@@ -5,7 +5,7 @@ from .models import Human, Manager
 
 
 class HumanAdmin(AdminImageMixin, admin.ModelAdmin):
-    list_display = ("full_name", "quote", "email")
+    list_display = ("full_name", "quote",)
 admin.site.register(Human, HumanAdmin)
 
 class ManagerAdmin(admin.ModelAdmin):

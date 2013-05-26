@@ -1,4 +1,3 @@
-
 function CustomFileBrowser(field_name, url, type, win) {
     tinyMCE.activeEditor.windowManager.open({
         file: window.__filebrowser_url + '?pop=2&type=' + type,
@@ -17,9 +16,7 @@ function CustomFileBrowser(field_name, url, type, win) {
 }
 
 if (typeof tinyMCE != 'undefined') {
-
     tinyMCE.init({
-
         // main settings
         mode : "specific_textareas",
         editor_selector : "mceEditor",
@@ -69,8 +66,7 @@ if (typeof tinyMCE != 'undefined') {
         paste_auto_cleanup_on_paste : true,
         paste_remove_styles: true,
         paste_remove_styles_if_webkit: true,
-        paste_strip_class_attributes: true
-
-	});
-
+        paste_strip_class_attributes: true,
+        extended_valid_elements: 'javascript|iframe'
+    });
 }

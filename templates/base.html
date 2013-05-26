@@ -1,18 +1,17 @@
-{% load compress pages_tags typogrify_tags %}{% spaceless %}<!doctype html>
+{% load compress pages_tags thumbnail typogrify_tags %}{% spaceless %}<!doctype html>
 <html>
 	<head>
-		<title>{% block meta_title %}{% endblock %}{% if settings.SITE_TITLE %}{% block meta_title_separator %} / {% endblock %}{{ settings.SITE_TITLE }}{% endif %}</title>
+		<title>{% block meta_title %}{% endblock %}{% if setup.site_short_title %}{% block meta_title_separator %} / {% endblock %}{{ setup.site_short_title }}{% endif %}</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="keywords" content="{% block meta_keywords %}{% endblock %}" />
 		<meta name="description" content="{% block meta_description %}{% endblock %}" />
 		<meta name="viewport" content="width=525; initial-scale=0.5; maximum-scale=1.0;"/>
 		<link rel="shortcut icon" href="{{ STATIC_URL }}favicon.ico" />
 		<link rel="apple-touch-icon" href="{{ STATIC_URL }}apple-touch-icon.png" />
-
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
 
 		{% compress js %}
-			<script src="{{ STATIC_URL }}js/jquery.mouseSwipe.1.0.2.js" type="text/javascript"></script>
+			<script src="{{ STATIC_URL }}js/jquery.swipe.js" type="text/javascript"></script>
 			<script src="{{ STATIC_URL }}fancybox/jquery.fancybox.js" type="text/javascript"></script>
 			<script src="{{ STATIC_URL }}fancybox/helpers/jquery.fancybox-buttons.js" type="text/javascript"></script>
 			<script type="text/javascript">
@@ -28,6 +27,28 @@
 			<link rel="stylesheet" href="{{ STATIC_URL }}fancybox/helpers/jquery.fancybox-buttons.css" />
 			<style type="text/css">
 				{% block extra_css %}{% endblock %}
+
+				{% if setup.main_logo %}
+					{% thumbnail setup.main_logo '200x60' as main_logo %}
+						#top h1 {
+							width: {{ main_logo.width }}px;
+							height: {{ main_logo.height }}px;
+							background: url('{{ STATIC_URL }}{{ main_logo }}') 0 0 no-repeat transparent;
+						}
+					{% endthumbnail %}
+
+				{% endif %}
+
+				{% if setup.small_logo %}
+					{% thumbnail setup.main_logo '45x43' as small_logo %}
+						#footer-logo {
+							width: {{ small_logo.width }}px;
+							height: {{ small_logo.height }}px;
+							background: url('{{ STATIC_URL }}{{ small_logo }}') 0 0 no-repeat transparent;
+						}
+					{% endthumbnail %}
+
+				{% endif %}
 			</style>
 		{% endcompress %}
 
@@ -38,11 +59,11 @@
 	<body>
 		<div id="page">
 			<div id="top" class="clearfix">
-				<a href="{% url home %}" title="{{ settings.SITE_TITLE }}">
-					<h1>{{ settings.SITE_TITLE }}</h1>
+				<a href="{% url "home" %}" title="{{ setup.site_full_title }}">
+					<h1>{{ setup.site_short_title }}</h1>
 				</a>
 				<div id="top-menu">
-					<div id="top-phone"><b>+7 492 229-03-56</b></div>
+					<div id="top-phone"><b>{{ setup.phone }}</b></div>
 					<nav>{% page_menu "pages/menus/top-right.html" %}</nav>
 				</div>
 			</div>
@@ -93,9 +114,9 @@
 						<p>
 							<em>&mdash; {{ human.full_name }}. {{ human.position }}.</em>
 						</p>
-						{% if human.email %}
+						{% if human.link and human.link_text%}
 							<p>
-								<a href="mailto:{{ human.email }}">Написать</a>
+								<a href="{{ human.link }}">{{ human.link_text }}</a>
 							</p>
 						{% endif %}
 					</div>
@@ -106,7 +127,13 @@
 				<div id="footer-logo"></div>
 				<div id="footer-menu" class="clearfix">
 					<nav>{% page_menu "pages/menus/footer.html" %}</nav>
-					<p>&copy; {{ settings.SITE_TITLE }}, {% now "Y" %}. Все права защищены.</p>
+					<p>
+						<span>&copy; {{ setup.site_short_title }}, {% now "Y" %}. Все права защищены.</span>
+						{% if setup.copyright %}
+							<br />
+							<span>{{ setup.copyright }}</span>
+						{% endif %}
+					</p>
 				</div>
 			</footer>
 		</div>

@@ -83,31 +83,36 @@
 		border-radius: 0;
 		margin-bottom: 15px;
 	}
-		#mouseSwipe {
+		#index-banners.swipe {
 			height: 350px;
 		}
-			#mouseSwipe .panel {
+			#index-banners.swipe .panel {
 				width: auto;
 				height: 350px;
 				border-radius: 0;
 				background-position: 50% 50%;
 			}
-				#mouseSwipe .panel .panel-left {
+				#index-banners.swipe .panel .panel-left {
 					width: 100%;
 					margin: 30px 0 0 15px;
 				}
-					#mouseSwipe .panel .panel-left h1 {
+					#index-banners.swipe .panel .panel-left h1 {
 						font-size: 3em;
 					}
-				#mouseSwipe .panel .panel-right {
+				#index-banners.swipe .panel .panel-right {
 					float: left;
 					width: 100%;
 					margin: 15px 15px 0 15px;
 				}
-					#mouseSwipe .panel .panel-right img {
+					#index-banners.swipe .panel .panel-right img {
 						float: left;
 						margin: 0 15px 15px 0;
 					}
+		#index-banners-prev,
+		#index-banners-next {
+			top: 70% !important;
+			height: 30%;
+		}
 	/* Licenses and patents */
 	#licenses-list .title,
 	#patents-list .title {

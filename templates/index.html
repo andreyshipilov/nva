@@ -8,8 +8,8 @@
 {% block big_title %}
 	<div id="index-content" class="clearfix">
 		{% if banners %}
-			<div id="index-banners">
-				<div id="mouseSwipe">
+			<div id="index-banners" class="swipe clearfix">
+				<div class="swipe-wrap">
 					{% for b in banners %}
 						<div class="panel" id="banner_{{ b.pk }}">
 							<div class="panel-left">
@@ -31,11 +31,13 @@
 					{% endfor %}
 				</div>
 			</div>
+			<div id="index-banners-prev"></div>
+			<div id="index-banners-next"></div>
 		{% endif %}
 
 		{% if news %}
 			<div id="index-news">
-				<a href="{% url news_index %}" id="news-link">Новости</a>
+				<a href="{% url "news_index" %}" id="news-link">Новости</a>
 				<table>
 					{% for item in news %}
 						<tr>
@@ -100,29 +102,44 @@
 			}
 		{% endthumbnail %}
 	{% endfor %}
+
+	.swipe {
+		overflow: hidden;
+		visibility: hidden;
+		position: relative;
+	}
+	.swipe-wrap {
+		overflow: hidden;
+		position: relative;
+	}
+	.swipe-wrap > div.panel {
+		float:left;
+		width:100%;
+		position: relative;
+	}
 {% endblock %}
 
 {% block extra_js %}
 	{% if banners|length > 1 %}
+		var mySwipe;
+
 		$(function () {
-			$(document).bind("dragstart", function() {
-				return false;
+			window.mySwipe = new Swipe(document.getElementById('index-banners'), {
+				startSlide: 2,
+				speed: 400,
+				auto: 3000,
+				continuous: true,
+				disableScroll: false,
+				stopPropagation: false,
+				callback: function(index, elem) {},
+				transitionEnd: function(index, elem) {}
 			});
-			$(window).bind("resize", function() {
-				if ($(window).width() < 1000) {
-					$("#index-banners .panel").width($(window).width());
-				} else {
-					$("#index-banners .panel").width(950);
-				}
-				$(".navLeft, .navRight").remove();
-				$('#mouseSwipe').swipe({
-					TYPE: 'panelSwipe',
-					HORIZ: true,
-					DURATION: 1000,
-					ARROWS: true
-				});
+			$('#index-banners-prev').appendTo($('#index-banners')).on('click', function(){
+				window.mySwipe.prev();
 			});
-			$(window).resize();
+			$('#index-banners-next').appendTo($('#index-banners')).on('click', function(){
+				window.mySwipe.next();
+			});
 		});
 	{% endif %}
 {% endblock %}

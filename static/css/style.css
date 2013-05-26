@@ -50,7 +50,7 @@ strong, b {
 	padding: 0 25px;
 }
 #top {
-	margin: 0 0 50px;
+	margin: 0 0 25px;
 }
 	#top h1 {
 		float: left;
@@ -314,7 +314,7 @@ footer {
 		background: url('/static/big-title-bg.jpg') no-repeat 0 100% #1a96d6;
 		position: relative;
 		width: 950px;
-		height: 500px;
+		height: 490px;
 		overflow: hidden;
 		margin: 0 0 25px;
 		border-radius: 5px;
@@ -322,50 +322,50 @@ footer {
 		-webkit-border-radius: 5px;
 		-o-border-radius: 5px;
 	}
-		#mouseSwipe {
+		.swipe-wrap {
 			-webkit-user-select: none;
 			-moz-user-select: none;
 			position: relative;
 			width: 950px;
-			height: 500px;
+			height: 490px;
 			margin: 0;
 			cursor: move;
 		}
-			#mouseSwipe .panel {
+			.swipe-wrap .panel {
 				color: #fff;
 				margin: 0;
 				padding: 0;
 				width: 950px;
-				height: 500px;
+				height: 490px;
 				border-radius: 5px;
 				-moz-border-radius: 5px;
 				-webkit-border-radius: 5px;
 				-o-border-radius: 5px;
 			}
-				#mouseSwipe .panel .panel-left {
+				.swipe-wrap .panel .panel-left {
 					float: left;
 					width: 575px;
 					margin: 50px 0 0 50px;
 				}
-					#mouseSwipe .panel .panel-left h1 {
+					.swipe-wrap .panel .panel-left h1 {
 						color: #fff;
 						font: bold 5em/1em Calibri, ArialRoundedMTBold, sans-serif;
 						margin: 0;
 					}
-				#mouseSwipe .panel .panel-right {
+				.swipe-wrap .panel .panel-right {
 					float: right;
 					width: 275px;
 					margin: 50px 50px 0 0;
 				}
-					#mouseSwipe .panel .panel-right h2 {
+					.swipe-wrap .panel .panel-right h2 {
 						color: #fff;
 						font-size: 1.6em;
 						line-height: 1em;
 					}
-					#mouseSwipe .panel .panel-right p {
+					.swipe-wrap .panel .panel-right p {
 						margin: 25px 0;
 					}
-					#mouseSwipe .panel .panel-right a.download {
+					.swipe-wrap .panel .panel-right a.download {
 						color: #fff;
 						text-shadow: 0 -1px 0 #000;
 						float: left;
@@ -379,31 +379,27 @@ footer {
 						text-decoration: none;
 						border: 1px solid #3db5f2;
 					}
-			.navLeft, .navRight, .navTop, .navBottom {
+			#index-banners-prev,
+			#index-banners-next {
 				position: absolute;
 				display: block;
 				background-color: transparent;
 				cursor: pointer;
 				z-index: 100;
-			}
-			.navLeft {
-				top: 0px;
-				left: 0px;
+				top: 0;
+				right: 0;
 				width: 70px;
 				height: 100%;
-				text-align: center;
+				background-position: center center;
+				background-repeat: no-repeat;
+			}
+			#index-banners-prev {
+				left: 0;
 				background-image: url('/static/banner-arrow-left.png');
-				background-position: center center;
-				background-repeat: no-repeat;
 			}
-			.navRight {
-				top: 0px;
-				right: 0px;
-				width: 70px;
-				height: 100%;
+			#index-banners-next {
+
 				background-image: url('/static/banner-arrow-right.png');
-				background-position: center center;
-				background-repeat: no-repeat;
 			}
 	#index-news {
 		width: 275px;
