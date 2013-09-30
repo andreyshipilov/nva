@@ -37,11 +37,11 @@ def product(request, pk):
             })
 
             if product.manager:
-                send_mail("Получен новый вопрос", template.render(email_context),
+                send_mail(u"Получен новый вопрос", template.render(email_context),
                           "from@example.com", [product.manager.email],
                           fail_silently=True)
             else:
-                mail_admins("Получен новый вопрос", template.render(email_context),
+                mail_admins(u"Получен новый вопрос", template.render(email_context),
                             fail_silently=True,)
             form_is_ok = True
     else:
@@ -80,11 +80,11 @@ def service(request, pk):
             })
 
             if service.manager:
-                send_mail("Получен новый вопрос", template.render(email_context),
+                send_mail(u"Получен новый вопрос", template.render(email_context),
                           "from@example.com", [service.manager.email],
                           fail_silently=True)
             else:
-                mail_admins("Получен новый вопрос", template.render(email_context),
+                mail_admins(u"Получен новый вопрос", template.render(email_context),
                             fail_silently=True,)
             form_is_ok = True
     else:

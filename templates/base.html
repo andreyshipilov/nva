@@ -5,7 +5,7 @@
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<meta name="keywords" content="{% block meta_keywords %}{% endblock %}" />
 		<meta name="description" content="{% block meta_description %}{% endblock %}" />
-		<meta name="viewport" content="width=525; initial-scale=0.5; maximum-scale=1.0;"/>
+		<meta name="viewport" content="width=525, initial-scale=0.5, maximum-scale=1.0"/>
 		<link rel="shortcut icon" href="{{ STATIC_URL }}favicon.ico" />
 		<link rel="apple-touch-icon" href="{{ STATIC_URL }}apple-touch-icon.png" />
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
@@ -99,6 +99,8 @@
 						<br />
 					</div>
 					<div id="content-main">
+						{{ page.richtextpage.pre_text|safe }}
+
 						{% block main %}{% endblock %}
 					</div>
 				{% endblock %}
@@ -127,6 +129,7 @@
 				<div id="footer-logo"></div>
 				<div id="footer-menu" class="clearfix">
 					<nav>{% page_menu "pages/menus/footer.html" %}</nav>
+					<div class="clear"></div>
 					<p>
 						<span>&copy; {{ setup.site_short_title }}, {% now "Y" %}. Все права защищены.</span>
 						{% if setup.copyright %}

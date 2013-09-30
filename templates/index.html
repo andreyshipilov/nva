@@ -68,9 +68,7 @@
 									<img src="{{ project.client.image.url }}" alt="{{ project.title }}" />
 								</p>
 								<p class="client-title gray">{{ project.client.title }}</p>
-								<p class="project-title">
-									<a href="{{ project.get_absolute_url }}">{{ project.title }}</a>
-								</p>
+								<p class="project-title">{{ project.title }}</p>
 								<p class="project-description">{{ project.description }}</p>
 							</div>
 						</div>
@@ -96,57 +94,48 @@
 			}
 		{% endthumbnail %}
 	{% endfor %}
-
-	.swipe {
-		overflow: hidden;
-		visibility: hidden;
-		position: relative;
-	}
-	.swipe-wrap {
-		overflow: hidden;
-		position: relative;
-	}
-	.swipe-wrap > div.panel {
-		float: left;
-		width: 100%;
-		position: relative;
-	}
 {% endblock %}
 
 {% block extra_js %}
-	{% if banners|length > 1 %}
-		$(function () {
-			window.bannersSwipe = new Swipe(document.getElementById('index-banners'), {
-				auto: 5000,
-				continuous: true,
-				disableScroll: false,
-				stopPropagation: false,
-				callback: function(index, elem) {},
-				transitionEnd: function(index, elem) {}
-			});
-			$('#index-banners-prev').appendTo($('#index-banners')).on('click', function(){
-				window.bannersSwipe.prev();
-			});
-			$('#index-banners-next').appendTo($('#index-banners')).on('click', function(){
-				window.bannersSwipe.next();
-			});
-
-			window.projectsSwipe = new Swipe(document.getElementById('index-projects'), {
-				continuous: true,
-				disableScroll: false,
-				stopPropagation: false,
-				callback: function(index, elem) {},
-				transitionEnd: function(index, elem) {}
-			});
-			$('#projects-prev').on('click', function(){
-				window.projectsSwipe.prev();
-				return false;
-			});
-			$('#projects-next').on('click', function(){
-				window.projectsSwipe.next();
-				return false;
-			});
-			$('#index-project-top').prependTo($('#index-projects')).show();
+	$(function () {
+		window.bannersSwipe = new Swipe(document.getElementById('index-banners'), {
+			auto: 5000,
+			continuous: true,
+			disableScroll: false,
+			stopPropagation: false,
+			callback: function(index, elem) {},
+			transitionEnd: function(index, elem) {}
 		});
-	{% endif %}
+		$('#index-banners-prev').appendTo($('#index-banners'))
+			.on('click', function(){
+				window.bannersSwipe.prev();
+			})
+			.delay(500).fadeIn(250);
+		$('#index-banners-next').appendTo($('#index-banners'))
+			.on('click', function(){
+				window.bannersSwipe.next();
+			})
+			.delay(750).fadeIn(250);
+
+		window.projectsSwipe = new Swipe(document.getElementById('index-projects'), {
+			continuous: true,
+			disableScroll: false,
+			stopPropagation: false,
+			callback: function(index, elem) {},
+			transitionEnd: function(index, elem) {}
+		});
+		$('#projects-prev').on('click', function(){
+			window.projectsSwipe.prev();
+			return false;
+		});
+		$('#projects-next').on('click', function(){
+			window.projectsSwipe.next();
+			return false;
+		});
+		$('#index-project-top').prependTo($('#index-projects'))
+			.css('opacity', 0)
+			.show()
+			.delay(1000)
+			.animate({'opacity': 1}, 500);
+	});
 {% endblock %}

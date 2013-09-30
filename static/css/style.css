@@ -172,6 +172,7 @@ strong, b {
 	}
 	#big-title h1 a {
 		color: #fff;
+		text-decoration: none;
 	}
 #content {
 	position: relative;
@@ -393,11 +394,12 @@ footer {
 				background-repeat: no-repeat;
 			}
 			#index-banners-prev {
+				display: none;
 				left: 0;
 				background-image: url('/static/banner-arrow-left.png');
 			}
 			#index-banners-next {
-
+				display: none;
 				background-image: url('/static/banner-arrow-right.png');
 			}
 	#index-news {
@@ -586,6 +588,22 @@ footer {
 			#patents-list a:hover .description {
 				display: block;
 			}
+/* Projects */
+#projects-list {}
+	#projects-list article {}
+		#projects-list header {
+			float: left;
+			width: 200px;
+			margin: 0 25px;
+		}
+		#projects-list section {
+			float: left;
+			width: 650px;
+			margin: -25px 25px 25px;
+		}
+			#projects-list section .client {
+				text-align: right;
+			}
 
 /* Products */
 #products-list {}
@@ -653,3 +671,19 @@ footer {
 #captcha {
 	width: 100px !important;
 }
+
+/* JS Swipe */
+.swipe {
+	overflow: hidden;
+	visibility: hidden;
+	position: relative;
+}
+	.swipe-wrap {
+		overflow: hidden;
+		position: relative;
+	}
+	.swipe-wrap > div.panel {
+		float: left;
+		width: 100%;
+		position: relative;
+	}

@@ -1,4 +1,4 @@
-@media screen and (max-width:1000px) {
+@media screen and (max-width:1024px) {
 	html {
 		min-width: 525px;
 	}
@@ -196,4 +196,17 @@
 			width: auto;
 			margin-right: 15px;
 		}
+
+	/* Projects */
+	#projects-list header {
+		margin: 0 15px 0 0;
+		width: auto;
+		float: none;
+	}
+	#projects-list section {
+		width: auto;
+		margin-right: 0;
+		margin-left: 0;
+		margin-bottom: 15px;
+	}
 }

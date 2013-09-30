@@ -24,11 +24,12 @@
 			<header>
 				<h2>Задать вопрос</h2>
 			</header>
-			<form method="post" action=".">{% csrf_token %}
+			<form method="post" action="#form">{% csrf_token %}
 				<ul id="work-form">
 					{{ contact_form.as_ul }}
 				</ul>
 				<input type="submit" value="Отправить" id="work-form-submit" />
+				<a id="form">&nbsp;</a>
 			</form>
 		{% endif %}
 	</div>

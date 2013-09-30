@@ -43,6 +43,7 @@ class Project(models.Model):
                              verbose_name=u"название проекта",)
     description = models.CharField(max_length=100,
                                    verbose_name=u"краткое описание",)
+    text = models.TextField(verbose_name=u"полное описание проекта",)
     client = models.ForeignKey(Client, blank=True, null=True,
                                verbose_name=u"клиент, для которого выполнен проект",)
     field = models.ManyToManyField(Field, related_name="fields", blank=True,

@@ -38,15 +38,21 @@ PAGE_MENU_TEMPLATES = (
 #
 EXTRA_MODEL_FIELDS = (
     (
-        "mezzanine.pages.models.Page.image",
-        "ImageField",
-        ("Background Image",),
+        "mezzanine.pages.models.RichTextPage.image",
+        "sorl.thumbnail.ImageField",
+        (u"фоновое изображение для заголовка",),
         {
             "blank": True,
             "upload_to": lambda i, f: 'title_backgrounds/%s%s' % \
                 (urandom(16).encode('hex'), splitext(f)[1].lower()),
             #"verbose_name": u"фоновое изображение для заголовка",
          },
+    ),
+    (
+        "mezzanine.pages.models.RichTextPage.pre_text",
+        "mezzanine.core.fields.RichTextField",
+        (u"Текст перед основным содержимым",),
+        {"blank": True,},
     ),
 )
 
